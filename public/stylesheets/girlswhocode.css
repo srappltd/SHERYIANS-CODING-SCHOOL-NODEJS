@@ -1,0 +1,406 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+}
+#main{
+    width: 100%;
+}
+
+/* #headerImg  */
+#headerImg{
+    width: 100%;
+    height: 110vh;
+    background-image: url(https://ik.imagekit.io/sheryians/GWC_landscape_Gh3H-bX-r.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+/* #headerImg \\ */
+
+/* //header1  */
+#header1{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+#header1 .search{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: #55e5ff 2px solid;
+    position: relative;
+    background-color: #eafcff;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease 0.5s;
+}#header1 .search:hover{
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    padding-right: 20px;
+}
+#header1 .search:hover #header .search i{
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+}
+/* //header1 \\ */ 
+
+/* //header2  */
+#header2{
+    width: 100%;
+    height: 80vh;
+    background-color: #e7c800;
+    overflow: hidden;
+}
+#header2 .top{
+    font-size: 250px;
+    animation: slide 10s linear infinite;
+    white-space: nowrap;
+}
+#header2 .top span{
+    font-family: Vanguard CF;
+    text-transform: uppercase;
+}
+@keyframes slide {
+    from{
+        transform: translateX(0);
+    }to{
+        transform: translateX(-50%);
+    }
+}
+
+#header2 .bottom{
+    width: 35%;
+    margin-top: 2;
+    margin-left: 2%;
+}#header2 .bottom p{
+    width: 100%;
+    margin-top: 2;
+    margin-left: 2%;
+    font-size: 24px;
+    font-weight: 500;
+}
+#header2 .bottom span{
+    font-weight: 600;
+}
+/* //header2  */
+
+
+/* // squad  */
+#squad{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    background-color: black;
+}
+#squad .left{
+    width: 50%;
+    height: 100%;
+    font-size: 150px;
+    color: #eafcff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#squad .left h1{
+    font-family: Vanguard CF;
+}
+#squad .left h1:hover{
+    animation: txtColor 5s linear infinite;
+}
+#squad .left img{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+}
+
+#squad .right{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #eafcff;
+}
+#squad .right div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+#squad .right div:nth-child(1) p{
+    width: 40%;
+    font-size: 18px;
+    font-weight: 600;
+}#squad .right div:nth-child(1) h1{
+    font-size: 200px;
+    letter-spacing: -10px;
+    font-family: Vanguard CF;
+    /* animation: txtColor 5s linear infinite; */
+}#squad .right div:nth-child(1) h1:hover{
+    animation: txtColor 5s linear infinite;
+}
+#squad .right div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#squad .right div:nth-child(2){
+    width: 100%;
+    height: 50%;
+    position: relative;
+    overflow: hidden;
+    gap: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#squad .right img{
+    width: 35%;
+    height: 50%;
+    object-fit: cover;
+    object-position: top;
+    transition: 0.5s ease all;
+}#squad .right img:hover{
+   scale: 1.01;
+}
+@keyframes txtColor{
+    0%{
+        color: #dddddd;
+    }20%{
+        color: #ffe18e;
+    }40%{
+        color: #bdff6b;
+    }60%{
+        color: #75faff;
+    }80%{
+        color: #c36cfd;
+    }100%{
+        color: #e4e4e4;
+    }
+}
+
+
+
+
+
+
+/* // footer  */
+.footer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #252525;
+}
+.footer .fLeft{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer .fLeft h1{
+    font-size: 130px;
+    margin-left: 10%;
+    line-height: 110px;
+    margin-top: 8.9%;
+    font-weight: 500;
+    font-family: helvetica;
+}
+.footer .fLeft div{
+    width: 50%;
+    height: 50%;
+    margin-left:10%;
+    position: relative;
+    margin-bottom: 5%;
+}
+.footer .fLeft div i{
+    font-size: 250px;
+    top: 25%;
+    left: -17%;
+    position: absolute;
+}.footer .fLeft div p{
+    bottom: 0;
+    position: absolute;
+}
+
+.footer .fRight{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.footer .fRight .content{
+    width: 100%;
+    height: 70%;
+    position: absolute;
+   bottom: -30px;
+   left: 40px;
+   margin-left: 1%;
+    padding: 0;
+}
+.footer .fRight .content p{
+    width: 42%;
+    text-align: right;
+    align-items: end;
+    position: absolute;
+    top: -10px;
+    right: 80px;
+    color: white;
+
+}
+.footer .fRight .content div{
+    width: 100%;
+    height: 80%;
+    margin-top: 7%;
+    overflow: hidden;
+}
+.footer .fRight .content div img{
+    width: 90%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+@media (max-width: 600px){
+/* #headerImg \\ */
+    /* //header1  */
+    #header1 .search:hover{
+    width: 80%;
+}
+    #header2{
+        width: 100%;
+        height: 25vh;
+        background-color: white;
+        overflow: hidden;
+    }
+    #header2 .top{
+        font-size: 70px;
+    }
+    /* #headerImg  */
+    #headerImg{
+        height: 50vh;
+    }
+
+    #header2 .bottom{
+        width: 90%;
+    }#header2 .bottom p{
+        font-size: 16px;
+        text-align: center;
+    }
+    #squad{
+        flex-direction: column;
+        height: 60vh;
+    }
+
+    #squad .left{
+        width: 100%;
+        height: 50%;
+        font-size: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+    #squad .left img{
+        width: 50%;
+    }
+    #squad .right{
+        width: 100%;
+        height: 50%;
+        padding: 0 20px;
+        /* background-color: #55e5ff; */
+    }
+    #squad .right div:nth-child(1){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    #squad .right div:nth-child(1) p{
+        display: none;
+    }#squad .right div:nth-child(1) h1{
+        font-size:70px;
+        letter-spacing: -2px;
+        margin-bottom: 10px;
+    }
+    .in{
+        display: flex !important;
+        gap: 10px !important;
+    }
+    #squad .right img{
+        width: 50%;
+        height: 90%;
+        object-fit: cover;
+        object-position: top;      
+    }
+
+    /* // footer  */
+    .footer{
+        flex-direction: column;
+        height: 50vh;
+        background-color: black;
+    }
+    .footer .fLeft{
+        display: none;
+    }
+
+
+    .footer .fRight{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .footer .fRight .content{
+        width: 100%;
+        height: 70%;
+        position: absolute;
+        padding: 0;
+    }
+    .footer .fRight .content p{
+        width: 90%;
+        text-align: center;
+        margin-right: -5%;
+        align-items: center;
+        margin-top: -100px;
+        text-align: center;
+        color: white;
+    
+    }
+    .footer .fRight .content div{
+        width: 80%;
+        height: 80%;
+        margin-top: -7px;
+        overflow: hidden;
+        margin-right: 10%;
+    }
+    .footer .fRight .content div img{
+        width: 100%;
+        object-fit: cover;
+        margin-right: 0%;
+        object-position: center;
+    }
+}

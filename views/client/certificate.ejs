@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True Coding School | Certificate</title>
+    <link rel="stylesheet" href="../../stylesheets/certificate.css">
+</head>
+<body>
+    <div id="main">
+        <!-- // nav bar  -->
+        <%- include('nav.ejs')%>
+        <!-- // nav bar \\ -->
+        
+        <div id="bottom">
+            <div class="bottom-left">
+                <h1>Request a Certificate of <br> <span><span class="offline">OFFLINE / ONLINE</span> batches</span></h1>
+                <div>
+                    <label for="">Full Name</label>
+                    <input type="text" placeholder="Name Surname">
+                </div>
+                <div>
+                    <label for="">Email</label>
+                    <input type="email" placeholder="abc@gmail.com">
+                </div>
+                <div class="select">
+                    <select name="" id="">
+                        <option value="">c for beginners</option>
+                        <option value="">java for campus placement</option>
+                        <option value="">java for campus placement</option>
+                        <option value="">Python for campus placement</option>
+                        <option value="">FrontEnd Web Development and Designing</option>
+                        <option value="">Campus Placement training</option>
+                        <option value="">data structures and algorithm</option>
+                        <option value="">backend web development</option>
+                    </select>
+                </div>
+                <div id="batch">
+                    <label for="">Enter Batch Code</label>
+                    <input type="text" placeholder="eg. B19m, J15">
+                </div>
+                <button>Confirm</button>
+                
+            </div>
+            <div class="bottom-right">
+                <img src="https://sheryians.com/images/boy-computer.png" alt="">
+            </div>
+        </div>
+
+
+        <div id="account">
+            <h2>Abhay Gautam</h2>
+            <button><i class="ri-user-6-line"></i> My Account</button>
+            <button><i class="ri-logout-box-line"></i> Logout</button>
+        </div>
+    </div>
+
+
+    <script>
+        var classroom = document.querySelector(".classroom");
+        // username
+        var username = document.querySelector("#username");
+        username.addEventListener("mouseenter",function(){
+            document.querySelector("#account").style.scale = 1;
+        });
+        username.addEventListener("click",function(){
+            document.querySelector("#account").style.scale = 0;
+            // document.querySelector("#account").style.scale = 0;
+        })
+    </script>
+</body>
+</html>

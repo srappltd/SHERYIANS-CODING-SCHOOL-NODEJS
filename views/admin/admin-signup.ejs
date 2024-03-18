@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheryians Admin | Sign Up</title>
+    <link rel="shortcut icon" href="https://ik.imagekit.io/sheryians/Sheryians_Logo_wFKd9VClG.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black dark:bg-slate-900 dark:text-white select-none">
+    <div class="max-w-[1580px] h-screen m-auto overflow-auto scrollbar-hide flex items-center justify-center">
+        <form action="/admin/signup" method="post" class="auth w-[100%] md:w-[35%] bg-white dark:bg-slate-900 md:bg-slate-700 flex items-center flex-col p-4 md:p-6 rounded-md">
+            <h1 class="text-3xl md:text-2xl font-semibold">Sign Up</h1>
+            <p class="text-center leading-[1.2] mt-2">Enter your email address & password to access admin panel</p>
+            <div class="input w-full flex flex-col mt-10">
+                <label for="#">Your Full Name:</label>
+                <input class="w-full px-3 py-3 bg-white dark:bg-slate-900 text-sm border outline-none border-slate-500 rounded" type="text" name="username" placeholder="Your full name">
+            </div>
+            <div class="input w-full flex flex-col mt-4">
+                <label for="#">Email Address:</label>
+                <input class="w-full px-3 py-3 bg-white dark:bg-slate-900 text-sm border outline-none border-slate-500 rounded" type="text" name="email" placeholder="Email Address">
+            </div>
+            <div class="input w-full flex flex-col mt-4">
+                <label for="#">Password:</label>
+                <input class="w-full px-3 py-3 bg-white dark:bg-slate-900 text-sm border outline-none border-slate-500 rounded" type="text" name="password" placeholder="Password">
+            </div>
+            <div class="input w-full flex gap-3 mt-4">
+                <input type="radio" name="radio" placeholder="Password">
+                <label for="#">I accept Terms & Condition</label>
+            </div>
+            <div class="input w-full flex gap-3 mt-4">
+                <button class="w-full py-3 bg-slate-500 rounded font-medium text-sm hover:bg-slate-600 text-white dark:text-white">Sign Up</button>
+            </div>
+            <div class="input w-full flex justify-center gap-3 mt-6">
+                <span class="text-zinc-500 dark:text-zinc-300">Already Have Account ? <a href="/admin" class="text-slate-950 dark:text-white font-normal text-base hover:underline">Login</a></span>
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: gilroy;
+    -webkit-user-select: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+#main{
+    width: 100%;
+    height: 100%;
+    background-color: #ffff;
+}
+nav{
+    width: 100%;
+    height: 8%;
+    background-color: white;
+    display: flex;
+    padding: 0 40px;
+}
+.nav-left{
+    width: 30%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    color: gray;
+}
+.nav-left img{
+    width: 30px;
+}.nav-left h2{
+    color: black;
+    white-space: nowrap;
+    font-size: 1.3vw;
+}
+a{
+    text-decoration: none;
+    color: rgb(42, 42, 42);
+    font-weight: 600;
+    
+}
+.nav-center{
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 40px;
+}.nav-right{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}.nav-right h2{
+    font-size: 1.2vw;
+    transition: all ease .3s;
+
+}.nav-right h2:hover{
+    color: rgb(115, 115, 115);
+}
+
+/* // account  */
+#account{
+    width: 20%;
+    height: 25%;
+    background-color: #e9f5ff6c;
+    backdrop-filter: blur(15px);
+    position: absolute;
+    top: 8%;
+    right: 5%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    scale: 0;
+}
+#account h2{
+    text-transform: uppercase;
+    font-size: 1.5vw;
+    color: rgb(58, 58, 58);
+}
+#account button{
+    width: 9vw;
+    padding:9px 30px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+    gap: 10px;
+    border-radius: 5px;
+    background-color: #2181FF;
+    font-size: 1vw;
+    font-weight: 600;
+    border: none;
+    color: white;
+    transition: all ease .3s;
+}
+#account button i{
+    font-size: 20px;
+}
+#account button:hover{
+    background-color: #76b1ff;
+}
+
+
+/* // .bottom */
+#bottom{
+    width: 100%;
+    height: 92%;
+    /* background-color: #2181FF; */
+    display: flex;
+}
+.bottom-left{
+    width: 50%;
+    height: 100%;
+    padding-left: 5%;
+    padding-top: 3%;
+}
+.bottom-right{
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom-right img{
+    width: 90%;
+}
+.bottom-left h1{
+    font-size: 3.1vw;
+    color: #FF5C6C;
+}
+.bottom-left h1 span{
+    font-size: 3vw;
+}.bottom-left h1 span .offline{
+    font-size: 2.3vw;
+    background-color: #FF5C6C;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.bottom-left div{
+    width: 100%;
+    height: 15%;
+    /* background-color: #FF5C6C; */
+    position: relative;
+    margin-top: 3%;
+}
+.bottom-left div label{
+    position: absolute;
+    top: 0;
+    font-size: 1.5vw;
+    font-weight: 300;
+    color: rgb(53, 53, 53);
+}
+.bottom-left div input{
+    width: 70%;
+    height: 3vw;
+    font-weight: 600;
+    font-size: 1.2vw;
+    padding: 10px 20px;
+    position: absolute;
+    top: 35%;
+    max-lines: 1;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #c8e0ff;
+    color: rgb(55, 55, 55);
+}
+.bottom-left div input:focus{
+    border: 2px solid rgb(48, 48, 48);
+}
+.bottom-left .select{
+    width: 100%;
+}
+.bottom-left .select select{
+    width: 70%;
+    height: 50%;
+    font-size: 1.2vw;
+    padding: 0px 20px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    color: rgb(71, 71, 71);
+}
+select option{
+    width: 100%;
+    font-size: 1.2vw;
+    border: none;
+}
+
+#batch{
+    margin-top: -4%;
+}
+button{
+    width: 20%;
+    padding: 13px 20px;
+    font-size: 1.2vw;
+    background-color: #FF6978;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

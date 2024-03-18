@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheryians |
+        <% if(!video){%>
+            <%= course.postid[0].title%>
+        <%}else{%>
+            <%= video.title%>
+        <%}%>
+    </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.3/axios.min.js" integrity="sha512-JWQFV6OCC2o2x8x46YrEeFEQtzoNV++r9im8O8stv91YwHNykzIS2TbvAlFdeH0GVlpnyd79W0ZGmffcRi++Bw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="shortcut icon" href="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Flogo%2FUntitled-2-modified.png?alt=media&token=cfd6a158-1040-4e4c-95a4-d88c5cfbdcde" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
+    <style>
+        body::-webkit-scrollbar { 
+            display: none; 
+        }
+        .page-left{
+            overflow-y: auto;
+            /* background-color: aqua; */
+            height: calc(90vh);
+            scrollbar-width: none;
+        }
+        .page-left::-webkit-scrollbar{
+            display: none;
+        }
+        .all{
+            overflow-y: auto;
+            /* background-color: aqua; */
+            height: calc(70vh);
+            scrollbar-width: none;
+        }
+        .all::-webkit-scrollbar{
+            display: none;
+        }
+        @media (min-width:320px) and (max-width:700px) {
+            .page-left{
+                overflow-y: hidden;
+                /* background-color: aqua; */
+                height: calc(90vh);
+                scrollbar-width: none;
+                height: fit-content;
+            }
+            .all{
+                overflow-y: hidden;
+                /* background-color: aqua; */
+                height: fit-content;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 md:overflow-hidden select-none">
+    <div id="main" class="max-w-[1580px] m-auto bg-slate-900 text-white relative fill-white stroke-white">
+        <!-- // nav tailwind -->
+        <%- include("nav-tailwind.ejs")%>
+        <!-- // video page  -->
+        <% if(course.postid.length != 0){%>
+            <div class="videopage w-full page1 flex px-[0px] md:px-[50px] py-[0px] md:py-[20px] gap-[30px] flex-col md:flex-row">
+                <!-- // left page  -->
+                <div class="page-left w-[100%] md:w-[65%]">
+                    <!-- // url video  -->
+                    <div class="play-video w-full mt-3 rounded-none md:rounded-xl overflow-hidden">
+                        <% if(!video){%>
+                            <video id="vid1" src="../../admin/uploads/<%= course.postid[0].url%>" poster="../../admin/uploads/<%= course.postid[0].poster%>" controls class="video-js cursor-pointer w-full h-[33vh] md:h-[75vh]"></video>
+                            <%}else{%>
+                            <video id="vid1" src="../../admin/uploads/<%= video.url%>" poster="../../admin/uploads/<%= video.poster%>" controls class="video-js w-full cursor-pointer h-[33vh] md:h-[75vh]"></video>
+                        <%}%>
+                        <!-- <iframe class="video-js w-full h-[75vh]" src="https://player.vdocipher.com/v2/?otp=20160313versASE323wlfQGYDpezJbNrI9eei7ry3z9dCEwA0Y61OuWMwJ78YwWE&playbackInfo=eyJ2aWRlb0lkIjoiNDdmZmU1YWE0Nzg1NmNlNGUyMjVjZDIzOGRhOGE3ZDIifQ==" allowFullScreen="true" allow="encrypted-media"></iframe> -->
+                        <!-- <iframe class="video-js w-full h-[75vh]" src="https://player.vdocipher.com/v2/?otp=20160313versASE323PS2iyf3ktIYMVAcMGA6ZKteLZ4IyQnrm1DNv8d3FIWxCoQ&playbackInfo=eyJ2aWRlb0lkIjoiZmFhYzY4MmY4NDY1NDY0ZDkzMjQzNWZkNWU1YmIyMGEifQ==" allowFullScreen="true" allow="encrypted-media"></iframe> -->
+                    </div>
+                    <!-- // video btm  -->
+                    <div class="play-btm px-[10px] md:px-[0px]">
+                        <!-- // title  -->
+                        <div class="w-full flex justify-between items-center">
+                            <div class="w-[80%] mt-3">
+                                <% if(!video){%>
+                                    <h1 class="font-semibold text-xl md:text-2xl w-[100%] line-clamp-2 md:line-clamp-1"><%= course.postid[0].title%></h1>
+                                    <p class="text-slate-400 font-medium text-sm md:text-base">100 views</p>
+                                <%}else{%>
+                                    <h1 class="font-semibold text-xl md:text-2xl w-[100%] line-clamp-2 md:line-clamp-1"><%= video.title%></h1>
+                                    <p class="text-slate-400 font-medium text-sm md:text-base">100 views</p>
+                                <%}%>
+                            </div>
+                            <a href="#" class="py-1 px-5 rounded font-medium bg-red-500">Next</a>
+                        </div>
+                        <!-- // subscribe to  -->
+                        <div class="w-full flex justify-between items-center flex-col-reverse md:flex-row gap-0 md:mt-0 mt-2">
+                            <div class="w-[100%] md:w-[50%] mt-3 flex items-center gap-3">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Flogo%2FUntitled-2-modified.png?alt=media&token=cfd6a158-1040-4e4c-95a4-d88c5cfbdcde" class="w-[40px] h-[40px] flex-shrink-0 rounded-full overflow-hidden border border-slate-700 object-cover" alt="">
+                                <div>
+                                    <h1 class="font-semibold text-base line-clamp-1 leading-[1.3] w-11/12">Making Resume online Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magni inventore pariatur quisquam officiis illo aliquam, vitae animi, neque corporis voluptatem labore amet commodi sit, quis numquam debitis vero quasi.</h1>
+                                    <p class="text-slate-400 font-medium text-sm"><%= allUser.length%> Student Learning</p>
+                                </div>
+                            </div>
+                            <div class="share-link-pg flex items-center justify-end gap-1 md:gap-2">
+                                <% if(!video){%>
+                                    <a class="like-btn py-1 px-3 cursor-pointer bg-slate-600 rounded-md md:rounded-lg flex items-center gap-2 font-medium text-sm"><svg class="w-[20px] fill-white stroke-white" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>Like</title><title/><g data-name="1" id="_1"><path d="M348.45,432.7H261.8a141.5,141.5,0,0,1-49.52-8.9l-67.5-25.07a15,15,0,0,1,10.45-28.12l67.49,25.07a111.79,111.79,0,0,0,39.08,7h86.65a14.21,14.21,0,1,0,0-28.42,15,15,0,0,1,0-30H368.9a14.21,14.21,0,1,0,0-28.42,15,15,0,0,1,0-30h20.44a14.21,14.21,0,0,0,10.05-24.26,14.08,14.08,0,0,0-10.05-4.16,15,15,0,0,1,0-30h20.45a14.21,14.21,0,0,0,10-24.26,14.09,14.09,0,0,0-10-4.17H268.15A15,15,0,0,1,255,176.74a100.2,100.2,0,0,0,9.2-29.33c3.39-21.87-.79-41.64-12.42-58.76a12.28,12.28,0,0,0-22.33,7c.49,51.38-23.25,88.72-68.65,108a15,15,0,1,1-11.72-27.61c18.72-8,32.36-19.75,40.55-35.08,6.68-12.51,10-27.65,9.83-45C199.31,77,211,61,229.18,55.34s36.81.78,47.45,16.46c24.71,36.36,20.25,74.1,13.48,97.21H409.79a44.21,44.21,0,0,1,19.59,83.84,44.27,44.27,0,0,1-20.44,58.42,44.27,44.27,0,0,1-20.45,58.43,44.23,44.23,0,0,1-40,63Z"/><path d="M155,410.49H69.13a15,15,0,0,1-15-15V189.86a15,15,0,0,1,15-15H155a15,15,0,0,1,15,15V395.49A15,15,0,0,1,155,410.49Zm-70.84-30H140V204.86H84.13Z"/></g></svg> <span><%= course.postid[0].likes.length%></span></a>
+                                    <a class="dislike-btn py-1 cursor-pointer px-3 bg-slate-600 rounded-md md:rounded-lg flex items-center gap-2 font-medium text-sm"><svg class="w-[20px] fill-white" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"> <title>Dislike</title> <title/><g data-name="1" id="_1"><path d="M242.28,427.39a43.85,43.85,0,0,1-13.1-2c-18.22-5.69-29.87-21.64-29.69-40.62.16-17.35-3.15-32.5-9.83-45-8.19-15.33-21.83-27.13-40.55-35.08A15,15,0,1,1,160.83,277c45.4,19.26,69.14,56.6,68.65,108a12.28,12.28,0,0,0,22.33,7c28.34-41.71,3.47-87.63,3.22-88.09a15,15,0,0,1,13.12-22.27H409.79a14.22,14.22,0,0,0,0-28.43H389.34a15,15,0,1,1,0-30,14.2,14.2,0,0,0,14.21-14.21,14.23,14.23,0,0,0-14.21-14.21H368.9a15,15,0,0,1,0-30,14.21,14.21,0,1,0,0-28.42H348.45a15,15,0,0,1,0-30,14.21,14.21,0,1,0,0-28.42H261.8a111.69,111.69,0,0,0-39.07,7l-67.5,25.07A15,15,0,0,1,144.78,82l67.5-25.07A141.5,141.5,0,0,1,261.8,48h86.65a44.25,44.25,0,0,1,40,63,44.27,44.27,0,0,1,20.45,58.43,44.27,44.27,0,0,1,20.44,58.42,44.21,44.21,0,0,1-19.59,83.84H290.11c6.77,23.11,11.23,60.85-13.48,97.22A41.21,41.21,0,0,1,242.28,427.39Z"/><path d="M155,305.85H69.13a15,15,0,0,1-15-15V85.21a15,15,0,0,1,15-15H155a15,15,0,0,1,15,15V290.85A15,15,0,0,1,155,305.85Zm-70.84-30H140V100.21H84.13Z"/></g></svg> <span><%= course.postid[0].dislikes.length%></span></a>
+                                    <a href="" class="share py-1 px-3 bg-slate-600 rounded-md md:rounded-lg flex items-center gap-2 font-medium text-sm"><svg class="w-[20px] fill-white  " version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <title>Share</title> <g id="info"/><g id="icons"><path d="M21.7,10.2l-6.6-6C14.6,3.7,14,4.2,14,5v3c-4.7,0-8.7,2.9-10.6,6.8c-0.7,1.3-1.1,2.7-1.4,4.1   c-0.2,1,1.3,1.5,1.9,0.6C6.1,16,9.8,13.7,14,13.7V17c0,0.8,0.6,1.3,1.1,0.8l6.6-6C22.1,11.4,22.1,10.6,21.7,10.2z" id="share"/></g></svg> Share</a>
+                                    <a href="#" class="descord py-1 px-3 bg-slate-600 rounded-md md:rounded-lg flex items-center gap-2 font-medium text-sm"><svg class="w-[20px] fill-white  " viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><title>Discord</title><path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/></svg> Descord</a>
+                                    <a href="#" class="feedback py-1 px-3 bg-slate-600 rounded-md md:rounded-lg text-sm"><svg class="fill-white" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><title>Help</title><path d="M10.75 14C11.9926 14 13 15.0074 13 16.25V17.752L12.9921 17.8604C12.6814 19.9866 10.7715 21.009 7.56679 21.009C4.37361 21.009 2.4333 19.9983 2.01446 17.8966L2 17.75V16.25C2 15.0074 3.00736 14 4.25 14H10.75ZM7.5 6C9.433 6 11 7.567 11 9.5C11 11.433 9.433 13 7.5 13C5.567 13 4 11.433 4 9.5C4 7.567 5.567 6 7.5 6ZM19.75 2C20.9926 2 22 3.00736 22 4.25V7.75C22 8.99264 20.9926 10 19.75 10H18.1972L15.6555 12.2071C15.2385 12.5691 14.6069 12.5245 14.2448 12.1075C14.0869 11.9256 14 11.6928 14 11.4523L13.9993 9.98619C12.8747 9.86153 12 8.90791 12 7.75V4.25C12 3.00736 13.0074 2 14.25 2H19.75Z"/></svg></a>
+                                    <script>
+                                        document.querySelector(".like-btn").addEventListener("click",()=>{
+                                            axios.get("/likes/<%= course.postid[0]._id%>").then(res=>{
+                                                    console.log(res.data.likes.length)
+                                                    document.querySelector(".like-btn span").textContent = res.data.likes.length
+                                                })
+                                        })
+                                        document.querySelector(".dislike-btn").addEventListener("click",()=>{
+                                            axios.get("/dislikes/<%= course.postid[0]._id%>").then(res=>{
+                                                    console.log(res.data.dislikes.length)
+                                                    document.querySelector(".dislike-btn span").textContent = res.data.dislikes.length
+                                                })
+                                        })
+                                        
+                                    </script>
+                                    <%}else{%>
+                                        <a class="like-btn cursor-pointer py-1 px-3 bg-slate-600 rounded-md md:rounded-lg flex items-center gap-2 font-medium text-sm"><svg class="w-[20px] fill-white" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"> <title>Like</title> <title/><g data-name="1" id="_1"><path d="M348.45,432.7H261.8a141.5,141.5,0,0,1-49.52-8.9l-67.5-25.07a15,15,0,0,1,10.45-28.12l67.49,25.07a111.79,111.79,0,0,0,39.08,7h86.65a14.21,14.21,0,1,0,0-28.42,15,15,0,0,1,0-30H368.9a14.21,14.21,0,1,0,0-28.42,15,15,0,0,1,0-30h20.44a14.21,14.21,0,0,0,10.05-24.26,14.08,14.08,0,0,0-10.05-4.16,15,15,0,0,1,0-30h20.45a14.21,14.21,0,0,0,10-24.26,14.09,14.09,0,0,0-10-4.17H268.15A15,15,0,0,1,255,176.74a100.2,100.2,0,0,0,9.2-29.33c3.39-21.87-.79-41.64-12.42-58.76a12.28,12.28,0,0,0-22.33,7c.49,51.38-23.25,88.72-68.65,108a15,15,0,1,1-11.72-27.61c18.72-8,32.36-19.75,40.55-35.08,6.68-12.51,10-27.65,9.83-45C199.31,77,211,61,229.18,55.34s36.81.78,47.45,16.46c24.71,36.36,20.25,74.1,13.48,97.21H409.79a44.21,44.21,0,0,1,19.59,83.84,44.27,44.27,0,0,1-20.44,58.42,44.27,44.27,0,0,1-20.45,58.43,44.23,44.23,0,0,1-40,63Z"/><path d="M155,410.49H69.13a15,15,0,0,1-15-15V189.86a15,15,0,0,1,15-15H155a15,15,0,0,1,15,15V395.49A15,15,0,0,1,155,410.49Zm-70.84-30H140V204.86H84.13Z"/></g></svg> <span><%= video.likes.length%></span></a>
+                                        <a class="dislike-btn cursor-pointer py-1 px-3 bg-slate-600 rounded-md md:rounded-lg flex items-center gap-2 font-medium text-sm"><svg class="w-[20px] fill-white  " viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"> <title>Dislike</title> <title/><g data-name="1" id="_1"><path d="M242.28,427.39a43.85,43.85,0,0,1-13.1-2c-18.22-5.69-29.87-21.64-29.69-40.62.16-17.35-3.15-32.5-9.83-45-8.19-15.33-21.83-27.13-40.55-35.08A15,15,0,1,1,160.83,277c45.4,19.26,69.14,56.6,68.65,108a12.28,12.28,0,0,0,22.33,7c28.34-41.71,3.47-87.63,3.22-88.09a15,15,0,0,1,13.12-22.27H409.79a14.22,14.22,0,0,0,0-28.43H389.34a15,15,0,1,1,0-30,14.2,14.2,0,0,0,14.21-14.21,14.23,14.23,0,0,0-14.21-14.21H368.9a15,15,0,0,1,0-30,14.21,14.21,0,1,0,0-28.42H348.45a15,15,0,0,1,0-30,14.21,14.21,0,1,0,0-28.42H261.8a111.69,111.69,0,0,0-39.07,7l-67.5,25.07A15,15,0,0,1,144.78,82l67.5-25.07A141.5,141.5,0,0,1,261.8,48h86.65a44.25,44.25,0,0,1,40,63,44.27,44.27,0,0,1,20.45,58.43,44.27,44.27,0,0,1,20.44,58.42,44.21,44.21,0,0,1-19.59,83.84H290.11c6.77,23.11,11.23,60.85-13.48,97.22A41.21,41.21,0,0,1,242.28,427.39Z"/><path d="M155,305.85H69.13a15,15,0,0,1-15-15V85.21a15,15,0,0,1,15-15H155a15,15,0,0,1,15,15V290.85A15,15,0,0,1,155,305.85Zm-70.84-30H140V100.21H84.13Z"/></g></svg> <span><%= video.dislikes.length%></span></a>
+                                        <a href="#" class="share py-1 px-3 bg-slate-600 rounded-md md:rounded-lg flex items-center gap-2 font-medium text-sm"><svg class="w-[20px] fill-white  " version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="info"/><g id="icons"><title>Share</title><path d="M21.7,10.2l-6.6-6C14.6,3.7,14,4.2,14,5v3c-4.7,0-8.7,2.9-10.6,6.8c-0.7,1.3-1.1,2.7-1.4,4.1   c-0.2,1,1.3,1.5,1.9,0.6C6.1,16,9.8,13.7,14,13.7V17c0,0.8,0.6,1.3,1.1,0.8l6.6-6C22.1,11.4,22.1,10.6,21.7,10.2z" id="share"/></g></svg> Share</a>
+                                        <a href="#" class="descord py-1 px-3 bg-slate-600 rounded-md md:rounded-lg flex items-center gap-2 font-medium text-sm"><svg class="w-[20px] fill-white  " viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><title>Discord</title><path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/></svg> Descord</a>
+                                        <a href="#" class="feedback py-1 px-3 bg-slate-600 rounded-md md:rounded-lg text-sm"><svg class="fill-white" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><title>Help</title><path d="M10.75 14C11.9926 14 13 15.0074 13 16.25V17.752L12.9921 17.8604C12.6814 19.9866 10.7715 21.009 7.56679 21.009C4.37361 21.009 2.4333 19.9983 2.01446 17.8966L2 17.75V16.25C2 15.0074 3.00736 14 4.25 14H10.75ZM7.5 6C9.433 6 11 7.567 11 9.5C11 11.433 9.433 13 7.5 13C5.567 13 4 11.433 4 9.5C4 7.567 5.567 6 7.5 6ZM19.75 2C20.9926 2 22 3.00736 22 4.25V7.75C22 8.99264 20.9926 10 19.75 10H18.1972L15.6555 12.2071C15.2385 12.5691 14.6069 12.5245 14.2448 12.1075C14.0869 11.9256 14 11.6928 14 11.4523L13.9993 9.98619C12.8747 9.86153 12 8.90791 12 7.75V4.25C12 3.00736 13.0074 2 14.25 2H19.75Z"/></svg></a>
+                                        <script>
+                                            document.querySelector(".like-btn").addEventListener("click",()=>{
+                                                axios.get("/likes/<%= video._id%>").then(res=>{
+                                                        console.log(res.data.likes.length)
+                                                        document.querySelector(".like-btn span").textContent = res.data.likes.length
+                                                    })
+                                            })
+                                            document.querySelector(".dislike-btn").addEventListener("click",()=>{
+                                                axios.get("/dislikes/<%= video._id%>").then(res=>{
+                                                        console.log(res.data.dislikes.length)
+                                                        document.querySelector(".dislike-btn span").textContent = res.data.dislikes.length
+                                                    })
+                                            })
+                                            
+                                        </script>
+                                    <%}%>
+                            </div>
+                        </div>
+                        <!-- // des  -->
+                        <div class="des w-full bg-slate-700 py-2 px-4 rounded-md md:rounded-lg mt-5 select-none">
+                            <h3 class="font-bold md:font-semibold text-base md:text-sm text-slate-300">Description</h3>
+                            <div>
+                                <% if(!video){%>
+                                    <p class="text-base leading-[1.2] line-clamp-3 text-left md:text-justify"><%= course.postid[0].des%></p>
+                                    <%}else{%>
+                                        <p class="text-base leading-[1.2] line-clamp-3 text-left md:text-justify"><%= video.des%></p>
+                                    <%}%>
+                                    <span class="font-semibold text-red-500 cursor-pointer">...more</span>
+                            </div>
+                        </div>
+                        <!-- // comment form  -->
+                        <div class="com md:p-3 p-0">
+                            <h1 class="font-semibold">
+                                <% if(!video){%>
+                                    <%= course.postid[0].comment.length%>
+                                <%}else{%>
+                                    <%= video.comment.length%>
+                                    <%}%>
+                                    Comments
+                                </h1>
+                            <div class="flex gap-3 mt-3 items-start md:items-center">
+                                <% if(user.picture != ""){%>
+                                    <img src="../../admin/user-pic/<%= user.picture%>" class="w-[35px] h-[35px] md:w-[30px] md:h-[30px] flex-shrink-0 rounded-full overflow-hidden border border-slate-700 object-cover" alt="">
+                                    <%}else{%>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Ic_account_circle_48px.svg/1200px-Ic_account_circle_48px.svg.png" class="w-[35px] h-[35px] md:w-[30px] md:h-[30px] flex-shrink-0 rounded-full overflow-hidden border border-slate-700 object-cover" alt="">
+                                <%}%>
+                                <% if(!video){%>
+                                    <form action="/comment/<%= course.postid[0]._id%>" method="post" class="from w-full">
+                                        <input type="text" required placeholder="Add comments" name="comment" class="w-full py-2 border-b bg-slate-900 outline-none border-slate-600 resize-none"></input>
+                                        <div class="w-full flex justify-end gap-3 mt-2">
+                                            <button type="reset" class="py-[4px] md:py-[6px] px-3 md:px-5 rounded bg-slate-400 hover:bg-slate-500 font-semibold md:font-medium">cancel</button>
+                                            <button type="submit" class="py-[4px] md:py-[6px] px-3 md:px-5 rounded bg-red-400 hover:bg-red-500 font-semibold md:font-medium">comment</button>
+                                        </div>
+                                    </form>
+                                    <%}else{%>
+                                    <form action="/comment/<%= video._id%>" method="post" class="from w-full">
+                                        <input type="text" required placeholder="Add comments" name="comment" class="w-full py-2 border-b bg-slate-900 outline-none border-slate-600 resize-none"></input>
+                                        <div class="w-full flex justify-end gap-3 mt-2">
+                                            <button type="reset" class="py-[4px] md:py-[6px] px-3 md:px-5 rounded bg-slate-400 hover:bg-slate-500 font-semibold md:font-medium">cancel</button>
+                                            <button type="submit" class="py-[4px] md:py-[6px] px-3 md:px-5 rounded bg-red-400 hover:bg-red-500 font-semibold md:font-medium">comment</button>
+                                        </div>
+                                    </form>
+                                <%}%>
+                                
+                            </div>
+                            <!-- // comment show  -->
+                            <% if(!video){%>
+                                <% if(comment2.length != 0){%>
+                                    <% comment2.reverse().forEach(com=>{%>
+                                        <div class="flex gap-3 mt-4 md:mt-3 items-start">
+                                            <% if(com.userid.picture != ""){%>
+                                                <img src="../../admin/user-pic/<%= com.userid.picture%>" class="w-[35px] h-[35px] md:w-[30px] md:h-[30px] flex-shrink-0 rounded-full overflow-hidden border border-slate-700 object-cover" alt="">
+                                                <%}else{%>
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Ic_account_circle_48px.svg/1200px-Ic_account_circle_48px.svg.png" class="w-[35px] h-[35px] md:w-[30px] md:h-[30px] flex-shrink-0 rounded-full overflow-hidden border border-slate-700 object-cover" alt="">
+                                            <%}%>
+                                            <div action="" class="from w-full">
+                                                <!-- <input type="text" placeholder="Add comments" name="comment" class="w-full py-2 border-b bg-slate-900 outline-none border-slate-600 resize-none"></input> -->
+                                                <h3 class="text-sm text-slate-300 font-medium"><%= com.userid.username%> <span class=""><%= com.date%> / <%= com.time%></span></h3>
+                                                <p class="line-clamp-3 leading-[1.2] font-normal text-base"><%= com.comment%></p>
+                                                <p class="more-btn cursor-pointer font-semibold text-red-500 leading-[1] mb-2">...more</p>
+                                            </div>
+                                        </div>
+                                    <%})%>
+                                <%}%>
+                            <%}else{%>
+                                <% if(comment.length != 0){%>
+                                    <% comment.reverse().forEach(com=>{%>
+                                        <div class="flex gap-3 mt-4 md:mt-3 items-start">
+                                            <% if(com.userid.picture != ""){%>
+                                                <img src="../../admin/user-pic/<%= com.userid.picture%>" class="w-[35px] h-[35px] md:w-[30px] md:h-[30px] flex-shrink-0 rounded-full overflow-hidden border border-slate-700 object-cover" alt="">
+                                                <%}else{%>
+                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Ic_account_circle_48px.svg/1200px-Ic_account_circle_48px.svg.png" class="w-[35px] h-[35px] md:w-[30px] md:h-[30px] flex-shrink-0 rounded-full overflow-hidden border border-slate-700 object-cover" alt="">
+                                            <%}%>
+                                            <div action="" class="from w-full">
+                                                <!-- <input type="text" placeholder="Add comments" name="comment" class="w-full py-2 border-b bg-slate-900 outline-none border-slate-600 resize-none"></input> -->
+                                                <h3 class="text-sm text-slate-300 font-medium"><%= com.userid.username%> <span class=""><%= com.date%> / <%= com.time%></span></h3>
+                                                <p class="line-clamp-3 leading-[1.2] font-normal text-base"><%= com.comment%></p>
+                                                <p class="more-btn cursor-pointer font-semibold text-red-500 leading-[1] mb-2">...more</p>
+                                            </div>
+                                        </div>
+                                    <%})%>
+                                <%}%>
+                            <%}%>
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- // right page  -->
+                <div class="page-right w-[100%] md:w-[35%] px-[10px]">
+                    <div class="pro w-full">
+                        <div class="flex items-center justify-between">
+                            <h1 class="font-bold text-2xl">Progress</h1>
+                            <h1 class="font-bold text-2xl">0%</h1>
+                        </div>
+                        <div class="prog w-full h-[7px] bg-slate-300 mt-2 rounded-full overflow-hidden">
+                            <div class="progree w-1/2 h-full bg-red-500"></div>
+                        </div>
+                    </div>
+                    <div class="all w-full mt-8 relative">
+                        <h1 class="text-slate-400 font-semibold text-sm">All Modulte</h1>
+                        <% if(course.postid.length != 0){%>
+                            <% course.postid.forEach(post=>{%>
+                                <a href="/<%= user._id%>/gotoclassroom/<%= course._id%>?v=<%= post._id%>" class="card-video w-full flex mt-[2px] gap-2 hover:bg-slate-950 p-2 rounded-md">
+                                    <div class="w-[180px] h-[100px] card-img relative rounded overflow-hidden flex-shrink-0">
+                                        <img class="w-[180px] h-[100px] object-cover" src="../../admin/uploads/<%= post.poster%>" alt="">
+                                        <span class="absolute bottom-0 right-0 font-semibold text-xs py-1 px-2 bg-[#0000006b] rounded-tl-md tracking-wider"><%= post.duration%></span>
+                                    </div>
+                                    <div class="card-right">
+                                        <p class="line-clamp-2 leading-[1.2] font-medium text-base"><%= post.title%></p>
+                                    </div>
+                                </a>
+                            <%})%>
+                        <%}else{%>
+                            <img class="w-[40%] absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%]" src="https://cdn-icons-png.flaticon.com/512/1661/1661901.png" alt="">
+                        <%}%>
+                        
+                    </div>
+                </div>
+            </div>
+        <%}%>
+    </div>
+    <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+    <script>
+        const player = videojs('vid1', {});
+
+        let flag = '<%= user.theme%>'
+        // theme create 
+        let menu = document.querySelectorAll("#main,.theme-icon,.nav,input,body")
+        let card = document.querySelectorAll(".card-video")
+        let cardLink = document.querySelectorAll(".share-link-pg a")
+        let des = document.querySelector(".des")
+
+        document.addEventListener("DOMContentLoaded",()=>{
+
+            if(flag == 0){
+                menu.forEach(elem=>{
+                    elem.classList.remove("bg-slate-900")
+                    elem.classList.remove("text-white")
+                    elem.classList.remove("fill-white")
+                    elem.classList.remove("stroke-white")
+                    elem.classList.add("fill-black")
+                    elem.classList.add("stroke-black")
+                    elem.classList.add("bg-white")
+                    elem.classList.add("text-black")
+                })
+                card.forEach(elem=>{
+                    elem.classList.remove("hover:bg-slate-950")
+                    elem.classList.add("hover:bg-slate-200")
+                })
+                cardLink.forEach(elem=>{
+                    elem.classList.remove("bg-slate-600")
+                    elem.classList.add("bg-slate-300")
+                })
+                des.classList.remove("bg-slate-700")
+                des.classList.add("bg-slate-200")
+                flag = 1
+            }
+            else{
+                menu.forEach(elem=>{
+                    elem.classList.add("bg-slate-900")
+                    elem.classList.add("text-white")
+                    elem.classList.add("fill-white")
+                    elem.classList.add("stroke-white")
+                    elem.classList.remove("fill-black")
+                    elem.classList.remove("stroke-black")
+                    elem.classList.remove("bg-white")
+                    elem.classList.remove("text-black")
+                })
+                card.forEach(elem=>{
+                    elem.classList.add("hover:bg-slate-950")
+                    elem.classList.remove("hover:bg-slate-200")
+                })
+                cardLink.forEach(elem=>{
+                    elem.classList.add("bg-slate-600")
+                    elem.classList.remove("bg-slate-300")
+                })
+                des.classList.add("bg-slate-700")
+                des.classList.remove("bg-slate-200")
+                flag = 0
+            }
+    
+        })
+    </script>
+</body>
+</html>

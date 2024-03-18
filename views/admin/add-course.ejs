@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheryians Admin | Add Course</title>
+    <link rel="shortcut icon" href="https://ik.imagekit.io/sheryians/Sheryians_Logo_wFKd9VClG.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black dark:bg-slate-900 dark:text-white">
+    <div class="max-w-[1580px] m-auto overflow-hidden">
+        <!-- // menu  -->
+        <%- include("menu.ejs")%>
+        
+
+        <!-- // page   -->
+        <div id="page1" class="w-full h-[91vh] flex">
+            <!-- // nav  left -->
+            <%- include("nav.ejs")%>
+            <!-- // nav right  -->
+            <div class="page1-right w-[100%] md:w-[80%] h-full bg-slate-950 p-3 overflow-auto">
+                <div class="nav2 w-full h-[8vh] flex justify-between items-center bg-slate-800 px-5 border-b-slate-700 border-b">
+                    <h1 class="text-xl font-semibold">Add Courses</h1>
+                    <!-- <a href="#" class="p-[10px] bg-green-800 rounded-sm font-medium text-sm">Add new book</a> -->
+                </div>
+                <div class="nav2 w-full py-3 bg-slate-800">
+                    <!-- // add author form  -->
+                    <form action="/admin/add-course" class="w-full p-2 md:p-7" method="post" enctype="multipart/form-data">
+                        <div class="input flex flex-col mt-3">
+                            <label for="#" class="font-medium">Courses Name:</label>
+                            <input type="text" required name="title" placeholder="Courses Name" class="text-sm h-full py-[11px] outline-none bg-slate-800 border-slate-700 border rounded mt-1 px-2" id="">
+                        </div>
+                        <div class="input flex flex-col mt-3">
+                            <label for="#" class="font-medium">Courses Duration:</label>
+                            <input type="text" required name="duration" placeholder="Courses Duration" class="text-sm h-full py-[11px] outline-none bg-slate-800 border-slate-700 border rounded mt-1 px-2" id="">
+                        </div>
+                        <div class="input flex mt-3 gap-4">
+                            <div class="flex flex-col w-1/2">
+                                <label for="#" class="font-medium">Courses Start:</label>
+                                <input type="date" required name="startdate" placeholder="Courses Duration" class="date-pic w-full text-sm h-full py-[11px] outline-none bg-slate-800 border-slate-700 border rounded mt-1 px-2" id="">
+                            </div>
+                            <div class="flex flex-col w-1/2">
+                                <label for="#" class="font-medium">Courses End:</label>
+                                <input type="date" required name="enddate" placeholder="Courses Duration" class="date-pic w-full text-sm h-full py-[11px] outline-none bg-slate-800 border-slate-700 border rounded mt-1 px-2" id="">
+                            </div>
+                        </div>
+                        
+                        <div class="input flex flex-col mt-3">
+                            <label for="#" class="font-medium">Courses Image:</label>
+                            <input type="file" required accept="image/png,image/jpg,image/jpeg,image/webp" name="poster" hidden class="input-select h-full py-[8px] bg-slate-800 border-slate-700 border rounded mt-1" id="">
+                            <div class="select-img h-[45px] bg-slate-800 border-slate-700 border rounded mt-1 flex">
+                                <div class="sele-txt w-[80%] md:w-[90%] whitespace-nowrap flex items-center px-3 overflow-hidden">
+                                    <p class="select-p w-[97%] text-ellipsis overflow-hidden text-sm">Select Courses Image</p>
+                                </div>
+                                <div class="select-btn w-[20%] md:w-[10%] flex items-center justify-center bg-slate-600 cursor-pointer hover:bg-slate-700">Browse</div>
+                            </div>
+                        </div>
+                        <div class="input flex flex-col mt-3">
+                            <label for="#" class="font-medium">Mentors:</label>
+                            <select name="mentorid" id="" required class="h-full outline-none py-[11px] bg-slate-800 border-slate-700 border rounded mt-1 px-2 text-sm">
+                                <option value="" disabled selected>Mentor Skill</option>
+                                <% if(mentors.length != 0){%>
+                                    <% mentors.reverse().forEach(mentor=>{%>
+                                        <option value="<%= mentor._id%>" ><%= mentor.username%></option>
+                                    <%})%>
+                                <%}%>
+                                
+                            </select>
+                        </div>
+                        <div class="input flex flex-col mt-3">
+                            <label for="#" class="font-medium">Courses Description:</label>
+                            <textarea type="text" required name="des" class="[word-spacing:3px] text-sm min-h-[140px] md:min-h-[240px] py-[11px] outline-none bg-slate-800 border-slate-700 border rounded mt-1 px-3" placeholder="Courses Description" id=""></textarea>
+                        </div>
+                        <div class="btn mt-3 flex gap-3">
+                            <button class="bg-orange-500 py-2 px-4 text-sm font-medium rounded-sm" type="submit">Submit</button>
+                            <button class="bg-red-500 py-2 px-4 text-sm font-medium rounded-sm" type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll(".select-btn").forEach((btn,item1)=>{
+            btn.addEventListener("click",()=>{
+                document.querySelectorAll(".input-select").forEach((inpu,item2)=>{
+                    if(item1 == item2){
+                        inpu.click();
+                    }
+                })
+            })
+        })
+        document.querySelectorAll(".input-select").forEach((inpu,item1)=>{
+            inpu.addEventListener("change",()=>{
+                document.querySelectorAll(".select-p").forEach((seleP,item2)=>{
+                    if(item1 == item2){
+                        seleP.textContent = inpu.files[0].name
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!-- // nav  -->
+<div class="nav h-[9vh] px-5 md:py-4 md:px-11 w-full flex justify-between items-center bg-slate-800">
+    <h1 class="text-2xl font-medium flex items-center gap-3">
+        <div class="men md:hidden"><?xml version="1.0" ?><svg class="stroke-white w-[30px] h-[30px]" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20M4 12H20M4 18H20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+        <span class="">Admin</span>
+    </h1>
+    <div class="nav-right flex justify-end gap-7 font-semibold text-base">
+        <div class="menu-btn block cursor-pointer"><svg width="20" height="20" class="fill-slate-700 dark:fill-white" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs></style></defs><title/><g data-name="67-menu" id="_67-menu"><rect height="12" width="12" x="1" y="1"/><rect height="12" width="12" x="1" y="19"/><rect height="12" width="12" x="19" y="19"/><rect height="12" width="12" x="19" y="1"/></g></svg></div>
+    </div>
+</div>
+<!-- // menu  -->
+<div class="hidden menu-card w-[230px] bg-slate-700 absolute right-[0vh] top-[6vh] md:right-[9vh] md:top-[6vh] rounded-none md:rounded-md overflow-hidden pb-4 z-50">
+    <div class="menu-top w-full h-[7.5vh] md:h-[10vh] bg-slate-500 p-3">
+        <h1 class="font-semibold text-lg md:text-xl leading-[1.4] whitespace-nowrap overflow-hidden text-ellipsis"><%= admin.username%></h1>
+        <h1 class="font-medium text-slate-300 text-sm">Available</h1>
+    </div>
+    <a href="" class="ite flex gap-3 px-3 py-2 mt-3 hover:bg-slate-900">
+        <div class="icon"><?xml version="1.0" ?><svg class="w-[26px] h-[26px] fill-white" enable-background="new 0 0 48 48" height="48px" id="Layer_1" version="1.1" viewBox="0 0 48 48" width="48px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path clip-rule="evenodd" d="M35,47H13c-2.209,0-4-1.791-4-4V13c0-2.209,1.791-4,4-4h7V5c0-2.209,1.791-4,4-4  s4,1.791,4,4v4h7c2.209,0,4,1.791,4,4v30C39,45.209,37.209,47,35,47z M26,5c0-1.104-0.896-2-2-2s-2,0.896-2,2v6c0,1.104,0.896,2,2,2  s2-0.896,2-2V5z M37,13c0-1.104-0.896-2-2-2h-7c0,2.209-1.791,4-4,4s-4-1.791-4-4h-7c-1.104,0-2,0.896-2,2v24h3.797  c0.231-0.589,0.656-1.549,1.16-2.24c0.025-0.014,0.848-1.739,4.998-1.79c0.006-0.021,0.01-1.042,0.022-1.027  c-0.32-0.202-0.737-0.516-1.051-0.816c-0.255-0.156-1.161-1.029-1.452-2.583c-0.087-0.542-0.488-3.099-0.488-4.166  c0-3.171,1.265-6.381,5.953-6.381c0.021,0,0.1,0,0.121,0c4.688,0,5.953,3.21,5.953,6.381c0,1.067-0.401,3.624-0.488,4.166  c-0.291,1.554-1.196,2.427-1.452,2.583c-0.313,0.301-0.73,0.614-1.051,0.816c0.013-0.015,0.018,1.007,0.022,1.027  c4.151,0.051,4.974,1.776,4.998,1.79c0.504,0.691,0.929,1.651,1.16,2.24H37V13z M25.014,31.488  c-0.001,0.003-0.001,0.004-0.001,0.004c-0.003,0-0.017-0.781-0.017-0.781s1.166-0.601,2.031-1.378  c0.507-0.417,0.741-1.362,0.741-1.362c0.137-0.828,0.238-2.877,0.238-3.703c0-2.062-1.033-4.28-4.007-4.28c0,0,0-0.006,0-0.007  c0,0,0,0.007,0,0.007c-2.974,0-4.007,2.219-4.007,4.28c0,0.826,0.103,2.875,0.238,3.703c0,0,0.234,0.945,0.741,1.362  c0.865,0.777,2.031,1.378,2.031,1.378s-0.014,0.781-0.018,0.781c0,0,0-0.001,0-0.004c0,0,0.029,1.146,0.029,1.486  c0,1.363-1.365,2.019-2.223,2.019c-0.002,0-0.002,0-0.003,0c-2.593,0.114-3.205,0.976-3.21,0.984  C17.419,36.23,17.2,36.482,16.998,37h14.005c-0.203-0.518-0.422-0.77-0.582-1.022c-0.006-0.009-0.619-0.87-3.211-0.984  c-0.001,0-0.001,0-0.002,0c-0.858,0-2.224-0.655-2.224-2.019C24.984,32.634,25.014,31.488,25.014,31.488z M37,39H11v4  c0,1.104,0.896,2,2,2h22c1.104,0,2-0.896,2-2V39z M31,43h-3c-0.553,0-1-0.447-1-1s0.447-1,1-1h3c0.553,0,1,0.447,1,1  S31.553,43,31,43z M23,43h-6c-0.553,0-1-0.447-1-1s0.447-1,1-1h6c0.553,0,1,0.447,1,1S23.553,43,23,43z M23,5h2v2h-2V5z" fill-rule="evenodd"/></svg></div>
+        <div class="ite-r">
+            <h1 class="text-base md:text-lg leading-[.8]">My profile</h1>
+            <small class="leading-[.9] text-ellipsis text-slate-300">View personal profile details</small>
+        </div>
+    </a>
+    <a href="" class="ite flex gap-3 px-3 py-2 hover:bg-slate-900">
+        <div class="icon"><?xml version="1.0" ?><svg class="w-[26px] h-[26px] fill-white" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h274.9c-2.4-6.8-3.4-14-2.6-21.3l6.8-60.9 1.2-11.1 7.9-7.9 77.3-77.3c-24.5-27.7-60-45.5-99.9-45.5zm45.3 145.3l-6.8 61c-1.1 10.2 7.5 18.8 17.6 17.6l60.9-6.8 137.9-137.9-71.7-71.7-137.9 137.8zM633 268.9L595.1 231c-9.3-9.3-24.5-9.3-33.8 0l-37.8 37.8-4.1 4.1 71.8 71.7 41.8-41.8c9.3-9.4 9.3-24.5 0-33.9z"/></svg></div>
+        <div class="ite-r">
+            <h1 class="text-base md:text-lg leading-[.8]">Edit profile</h1>
+            <small class="leading-[.9] text-ellipsis text-slate-300">Modify your personal details</small>
+        </div>
+    </a>
+    <a href="" class="ite flex gap-3 px-3 py-2 hover:bg-slate-900">
+        <div class="icon"><svg class="w-[24px] h-[20px] fill-white" enable-background="new 0 0 48 48" height="48px" id="Layer_4" version="1.1" viewBox="0 0 48 48" width="48px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><rect height="10.373" transform="matrix(-0.7073 0.707 -0.707 -0.7073 76.2081 -18.93)" width="6.526" x="38.761" y="1.127"/><polygon points="33.942,7.09 10.721,30.311 10.659,30.311 0.003,40.965 0.003,41.025 0.003,47.66 8.03,47.66 17.354,38.336    17.354,38.309 41.258,14.405  "/></g></svg></div>
+        <div class="ite-r">
+            <h1 class="text-base md:text-lg leading-[.8]">Account Settings</h1>
+            <small class="leading-[.9] text-ellipsis text-slate-300">Modify your personal details</small>
+        </div>
+    </a>
+    <a href="/admin/logout" class="ite flex gap-3 px-3 py-2 hover:bg-slate-900">
+        <div class="icon">
+            <?xml version="1.0" ?><svg class="w-[24px] h-[24px] fill-white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16 4H19C20.1046 4 21 4.89543 21 6V7M16 20H19C20.1046 20 21 19.1046 21 18V17M4.4253 19.4276L10.4253 21.2276C11.7085 21.6126 13 20.6517 13 19.3119V4.68806C13 3.34834 11.7085 2.38744 10.4253 2.77241L4.4253 4.57241C3.57934 4.8262 3 5.60484 3 6.48806V17.5119C3 18.3952 3.57934 19.1738 4.4253 19.4276Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path d="M9.001 12H9" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path d="M16 12H21M21 12L19 10M21 12L19 14" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+        <div class="ite-r">
+            <h1 class="text-base md:text-lg leading-[.8]">Logout</h1>
+            
+        </div>
+    </a>
+</div>
+<script>
+    let menu = 0;
+    document.querySelector(".menu-btn").addEventListener("click",()=>{
+        if(menu == 0){
+            document.querySelector(".menu-card").classList.add("block")
+            document.querySelector(".menu-card").classList.remove("hidden")
+            menu = 1;
+        }else{
+            document.querySelector(".menu-card").classList.add("hidden")
+            document.querySelector(".menu-card").classList.remove("block")
+            menu = 0;
+        }
+    })
+    let men = 0;
+    document.querySelector(".men").addEventListener("click",()=>{
+        if(men == 0){
+            document.querySelector(".page1-left").classList.remove("left-[-180px]")
+            document.querySelector(".page1-left").classList.add("left-[0px]")
+            men = 1;
+        }else{
+            document.querySelector(".page1-left").classList.remove("left-[0px]")
+            document.querySelector(".page1-left").classList.add("left-[-180px]")
+            men = 0;
+        }
+    })
+</script>

@@ -1,0 +1,647 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+}
+#main{
+    width: 100%;
+    overflow: hidden;
+}
+
+/* // header  */
+#header{
+    width: 100%;
+    height: 50vh;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    justify-content: center;
+}
+#header h1{
+    font-size: 3rem;
+    font-family: monument;
+    font-weight: 600;
+    margin-top: 20px;
+}#header button{
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: 2px solid #55B2FF;
+    background-color: #55B2FF;
+    border-radius: 10px;
+    color: white;
+    margin-top: 30px;
+    transition: all ease 0.5s;
+}
+#header button:hover{
+    background-color: white;
+    color: #55B2FF;
+}
+#header .search{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: #55e5ff 2px solid;
+    position: relative;
+    background-color: #eafcff;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease 0.5s;
+}#header .search:hover{
+    width: 20%;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    padding-right: 20px;
+}
+#header .search:hover #header .search i{
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+}
+/* // header \\ */ 
+
+/* //  placement  */
+#placement{
+    /* width: 100%; */
+    height: 50vh;
+    /* background-color: #525252; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    gap: 60px;
+}
+#placement .card{
+    width: 20%;
+    height:90%;
+    /* background-color: #55B2FF; */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all ease 0.5s;
+}
+#placement .card:hover{
+    scale: 1.01;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+}
+#placement .card .circle{
+    width: 70%;
+    height: 65%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    /* border: 2px solid #fff; */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+    /* background-color: #eafcff; */
+}
+#placement .card .circle img{
+    width: 100%;
+}
+#placement .card .bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    margin-top: 20px;
+    transition: 0.5s all ease;
+}
+#placement .card:hover .bottom{
+  opacity: 1;
+}
+#placement .card:hover .bottom p{
+    font-size: 16px;
+    font-weight: 700;
+    color: #3c3c3c;
+}
+/* // placement \\ */
+
+/* //bhopal  */
+#bhopal{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#bhopal .left{
+    width: 50%;
+    height: 100%;
+}
+#bhopal .left h1{
+    font-family: Vanguard CF;
+    font-size: 120px;
+    padding-left: 20%;
+    padding-top: 10%;
+}
+#bhopal .right{
+    width: 50%;
+    height: 100%;
+}
+#bhopal .right .content{
+    width: 63%;
+    margin-top: 30%;
+    margin-left: 30%;
+    font-size: 18px;
+}
+#bhopal .right .content button{
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: #000000 solid 2px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.4s all ease;
+}
+#bhopal .right .content button:hover{
+    background-color: #55b8ff;
+    color: white;
+}
+/* // bhopal \\  */
+
+
+/* // slide  */
+#slide{
+    width: 100%;
+    height: 100vh;
+    background-color: #3c3c3c;
+    padding-top: 0;
+    color: rgb(218, 218, 218);
+}
+#slide .top{
+    width: 100%;
+    height: 35%;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+}
+#slide .top .left{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}#slide .top .right{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}#slide .top .right .content{
+    width: 75%;
+}
+#slide .top .right .content button{
+    color: #559cff;
+    color: white;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+#slide .bottom{
+    width: 100%;
+    height: 65%;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+#slide .bottom .circle{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    background-color: #eafcff;
+    justify-content: center;
+    align-items: center;
+}
+#slide .bottom .circle i{
+    font-size: 40px;
+    color: #3c3c3c;
+    font-weight:bold;
+}
+#slide .bottom .card{
+    width: 29%;
+    height: 70%;
+    background-color: #3c3c3c;
+    border-radius: 0px;
+}
+#slide .bottom .card .img{
+    width: 100%;
+    height: 90%;
+    overflow: hidden;
+}#slide .bottom .card .img img{
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    border-radius: 0;
+}
+#slide .bottom .card h3{
+    text-align: center;
+    margin-top: 5px;
+}
+/* // slide \\  */
+
+/* //banner  */
+#banner{
+    width: 90%;
+    height: 50vh;
+    background-color: #3c3c3c;
+    margin: 5%;
+    position: relative;
+}
+#banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+#banner .overlape{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000084;
+}
+#banner P{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+    color: #c2c2c2;
+    font-weight: 500;
+    text-shadow: 0 0 2px white;
+    letter-spacing: 10px;
+}
+/* // banner \\  */
+
+/* //deter  */
+#deter{
+    width: 100%;
+    height: 20vh;
+    /* background-color: #559cff; */
+    display: flex;
+    justify-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    align-items: center;
+}
+#deter h1{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    font-size: 100px;
+    font-weight: 600;
+    align-items: center;
+}
+#deter div{
+    width: 50%;
+    height: 100%;
+    padding-left: 20%;
+    padding-top: 2%;
+}
+#deter div p:nth-child(1){
+    font-size: 30px;
+    font-weight: 700;
+}
+#deter div p:nth-child(2){
+    font-size: 16px;
+    font-weight: 500;
+}
+/* //deter \\  */
+
+#footer5{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3c3c3c;
+}
+#footer5 .fLeft{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#footer5 .fLeft h1{
+    font-size: 130px;
+    margin-left: 10%;
+    line-height: 110px;
+    margin-top: 8.9%;
+    font-weight: 500;
+    font-family: helvetica;
+}
+#footer5 .fLeft div{
+    width: 50%;
+    height: 50%;
+    margin-left:10%;
+    position: relative;
+    margin-bottom: 5%;
+}
+#footer5 .fLeft div i{
+    font-size: 250px;
+    top: 25%;
+    left: -17%;
+    position: absolute;
+}#footer5 .fLeft div p{
+    bottom: 0;
+    position: absolute;
+}
+
+#footer5 .fRight{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+#footer5 .fRight .content{
+    width: 100%;
+    height: 70%;
+    position: absolute;
+   bottom: -30px;
+   left: 40px;
+   margin-left: 1%;
+    padding: 0;
+}
+#footer5 .fRight .content p{
+    width: 42%;
+    text-align: right;
+    align-items: end;
+    position: absolute;
+    top: -10px;
+    right: 80px;
+    color: rgb(255, 255, 255);
+
+}
+#footer5 .fRight .content div{
+    width: 100%;
+    height: 80%;
+    margin-top: 7%;
+    overflow: hidden;
+}
+#footer5 .fRight .content div img{
+    width: 90%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (min-width:320px) and (max-width:600px) {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html, body{
+        width: 100%;
+    }
+    #main{
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    /* // header  */
+    #header{
+        height: 40vh;
+        text-align: center;
+    }
+    #header h1{
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 20px;
+    }#header button{
+        font-size: 1.5rem;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+    #header .search{
+        width: 40px;
+        height: 40px;
+    }#header .search:hover{
+        width: 80%;
+    }
+    /* // header \\ */ 
+    
+    /* //  placement  */
+    #placement{
+        /* width: 100%; */
+        height: fit-content;
+        gap: 5px;
+    }
+    #placement .card{
+        width: calc(50% - 10px);
+        height:30vh;
+        background-color: #eaeaea;
+    }
+    #placement .card:hover{
+        scale: 1;
+        box-shadow: none;
+    }
+    #placement .card .circle{
+        width: 120px;
+        height: 120px;
+        box-shadow: 0px 0px 10px rgba(78, 78, 78, 0.4);
+    }
+    #placement .card .bottom{
+        opacity: 1;
+    }
+    /* // placement \\ */
+    
+    /* //bhopal  */
+    #bhopal{
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    #bhopal .left{
+        width: 100%;
+        height: 40%;
+    }
+    #bhopal .left h1{
+        width: 100%;
+        font-size: 40px;
+        text-align: center;
+        padding-left: 0%;
+        padding-top: 5%;
+        line-height: 1.2;
+    }
+    #bhopal .right{
+        width: 100%;
+        height: 60%;
+    }
+    #bhopal .right .content{
+        width: 90%;
+        margin-top: 10%;
+        margin-left: 5%;
+        text-align: center;
+        font-size: 18px;
+    }
+    /* // bhopal \\  */
+    
+    
+    /* // slide  */
+    #slide{
+        width: 100%;
+        height: fit-content;
+        padding: 0;
+        padding-top: 0;
+        padding: 20px 0;
+        color: rgb(218, 218, 218);
+    }
+    #slide .top{
+        width: 100%;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1px;
+        flex-direction: column;
+    }
+    #slide .top .left{
+        width: 100%;
+        align-items: center;
+        padding: 25px 0;
+        
+    }#slide .top .right{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }#slide .top .right .content{
+        width: 90%;
+        font-size: 15px;
+    }
+    #slide .top .right .content button{
+        padding: 10px 20px;
+    }
+    #slide .bottom{
+        display: none;
+    }
+    /* // slide \\  */
+    
+    /* //banner  */
+    #banner{
+        width: 95%;
+        height: 25vh;
+        margin: 2.5%;
+    }
+    #banner img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    #banner P{
+        font-size: 30px;
+    }
+    /* // banner \\  */
+    
+    /* //deter  */
+    #deter{
+        width: 100%;
+        height: 30vh;
+        flex-direction: column;
+    }
+    #deter h1{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        font-size: 50px;
+        font-weight: 700;
+        align-items: center;
+    }
+    #deter div{
+        width: 100%;
+        height: 50%;
+        padding-left: 0%;
+        text-align: center;
+        padding-top: 2%;
+    }
+    #deter div p:nth-child(1){
+        font-size:25px;
+    }
+    #deter div p:nth-child(2){
+        font-size: 16px;
+    }
+    /* //deter \\  */
+    
+    #footer5{
+        width: 100%;
+        height: 45vh;
+    }
+    #footer5 .fLeft{
+        display: none;
+    }
+    
+    #footer5 .fRight{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    #footer5 .fRight .content{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        margin-left: 0%;
+        padding: 0;
+    }
+    #footer5 .fRight .content p{
+        width: 95%;
+        height: 5vh;
+        text-align: right;
+        align-items: end;
+        position: absolute;
+        top: 300px;
+        text-align: center;
+        right: 2.7%;
+        color: rgb(255, 255, 255);
+    
+    }
+    #footer5 .fRight .content div{
+        width: 100%;
+        height: 100%;
+        margin-top: 5%;
+        overflow: hidden;
+    }
+    #footer5 .fRight .content div img{
+        width: 95%;
+        object-fit: cover;
+        margin-left: 2.5%;
+        object-position: center;
+    }
+}

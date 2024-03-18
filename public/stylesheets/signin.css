@@ -1,0 +1,147 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /* font-family: gilroy; */
+    font-family: sans-serif;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+#main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main .left{
+    width: 50%;
+    height: 100%;
+    position: relative;
+}#main .left nav{
+    width: 100%;
+    height: 10vh;
+    /* background-color: aqua; */
+    display: flex;
+    padding-left: 4%;
+    padding-right: 4%;
+    justify-content: space-between;
+    align-items: center;
+}
+#main .left .form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#main .left .form p{
+    text-align: center;
+    font-size: 18px;
+    color: #333333;
+}#main .left .form h1{
+    text-align: center;
+    font-size: 40px;
+    margin-top:5px;
+    color: #1c1c1c;
+    
+}#main .left .form .sign-input{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}#main .left .form .sign-input label{
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: #989898;
+    
+}#main .left .form .sign-input .inputs{
+    outline: none;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 9px 10px;
+    margin-top: 5px;
+    width: 100%;
+}
+#main .left .form .sign-input .line{
+    width: 100%;
+    height: 2px;
+    margin-bottom: 5px;
+    background-color: #219BFF;
+}
+#main .left .form .login{
+    text-align: center;
+}
+#main .left .form .login button:nth-child(1){
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+    border-radius: 20px;
+    background-color: #4A86E8;
+}
+#main .left .form .login a{
+    font-size: 18px;
+    margin-top: 20px;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+
+    
+}
+#main .left .form .login .button2{
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: #ED372D;
+}
+
+
+
+
+
+
+#main .left nav img{
+    width: 30px;
+}#main .left nav i{
+    font-size: 30px;
+    color: #219BFF;
+    font-weight: 700;
+}
+#main .right{
+    width: 50%;
+    /* background-color: aqua; */
+    height: 100%;
+    overflow: hidden;
+}#main .right img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (min-width:320px) and (max-width:600px) {
+    #main .left{
+        width: 100%;
+    }
+    #main .left .form{
+        width: 95%;
+    }#main .left .form h1{
+        text-align: center;
+        font-size: 30px;
+    }
+    #main .right{
+        display: none;
+    }
+}

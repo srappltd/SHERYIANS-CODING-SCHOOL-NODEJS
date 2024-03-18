@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheryians | Home</title>
+    <link rel="stylesheet" href="../../stylesheets/style.css">
+    <link rel="stylesheet" href="../../stylesheets/resposive.css">
+    <link rel="shortcut icon" href="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Flogo%2FUntitled-2-modified.png?alt=media&token=cfd6a158-1040-4e4c-95a4-d88c5cfbdcde" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/B24%20PROJECT%2F21%20project%2Fstyle.css?alt=media&token=66efbe87-8360-4f02-b960-614a857ddf5e"> -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body id="body">
+    <div id="main">
+        <!-- // nav bar  -->
+        <%- include('nav.ejs')%>
+        <!-- // nav bar \\\ -->
+        <div id="hero">
+            <div class="left">
+                <div class="content">
+                    <h1>Learn from the <span> coolest coding platform </span> in India.</h1>
+                    <div class="circle">
+                        <div><i class="ri-arrow-right-fill"></i></div>
+                        <p>Top notch projects</p>
+                    </div>
+                    <div class="circle">
+                        <div><i class="ri-arrow-right-fill"></i></div>
+                        <p>Support via mentors </p>
+                    </div>
+                    <button>Explore our courses</button>
+                    <div class="circle c">
+                        <div><i class="ri-arrow-right-fill"></i></div>
+                        <p class="p">we're about coding and designing, it's in our heart & we would love to share all of it with you. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <img src="https://ik.imagekit.io/sheryians/photed_MVice1qZE.png" alt="">
+            </div>
+        </div>
+
+        <!-- // hero  -->
+        <div id="hero1">
+            <div class="content">
+                <p>Top Brands our students working with.</p>
+                <p>thousands of students from sheryians are working in top notch brands, here's the list. </p>
+                <div class="sponser">
+                    <div class="first">
+                        <img src="data:image/jpeg;base64,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" alt="">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-amazon-1869030-1583154.png" alt="">
+                        <img src="https://static.cdnlogo.com/logos/w/30/walmart.svg" alt="">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/640px-Google_2015_logo.svg.png" alt="">
+                    </div>
+                    <div class="first">
+                        <img src="http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG" alt="">
+                        <img src="https://indiancompanies.in/wp-content/uploads/2020/05/TCS-Logo-Tata-consultancy-service.png" alt="">
+                        <img src="https://www.wipro.com/content/dam/nexus/en/wipro-logo-new-og-502x263.jpg" alt="">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/GeeksforGeeks.svg/2560px-GeeksforGeeks.svg.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hero2">
+            <div class="left"><img src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Fdeveloper.jpeg?alt=media&token=10f806dd-ff83-4503-bf8a-1bf05291cf61" alt=""></div>
+            <div class="right">
+                <div class="content">
+                    <h1>Learn from awesome teachers live.</h1>
+                    <p>everyday one of our instructor will connect with you to share awesome coding skills in a live batch. </p>
+                    <button>Get start</button>
+                </div>
+            </div>
+        </div>
+        <div id="hero2" class="page3">
+            <div class="right">
+                <div class="content">
+                    <h1>Realistic projects which will actually land you a job. </h1>
+                    <p>we understand what you think about the projects, it should be realistic and robust, that's we're all about.</p>
+                    <button>Get start</button>
+                </div>
+            </div>
+            <div class="left"><img src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Fui-ux%20(2).png?alt=media&token=3c4aec98-7588-409b-b323-199a5ea8c23b" alt=""></div>
+        </div>
+        <!-- // hero \\ -->
+
+        <!-- // slide  -->
+        <div id="slide">
+            <div class="top">
+                <h2>MOST POPULAR COURSES.</h2>
+                <p>Top instructors of sheryians will guide you to transform your career, access our courses to start your journey now.</p>
+                <button>know more</button>
+            </div>
+            <div class="bottom">
+                <% if(courses.length != 0){%>
+                    <% courses.reverse().forEach(course=>{%>
+                            <a href="/course-details/<%= course._id%>" class="card">
+                                <img src="../../admin/course-pic/<%= course.poster%>" alt="">
+                                <h3><%= course.title%></h3>
+                                <p class="pr"><%= course.des%></p>
+                                <div class="profile">
+                                    <img src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Flogo%2FUntitled-2-modified.png?alt=media&token=cfd6a158-1040-4e4c-95a4-d88c5cfbdcde" alt="">
+                                    <div>
+                                        <p>by True Coding School</p>
+                                        <p>7 live Classes.</p>
+                                    </div>
+                                </div>
+                            </a>
+                    <%})%>
+                <%}%>
+                <!-- <div class="card">
+                    <img src="https://ik.imagekit.io/sheryians/courses_gif/Seamless_Page_Transitions_using_BarbaJS_and_GSAP.-Web_1920___1_jxReXSoCm.png" alt="">
+                    <h3>Seamless Page Transitions using BarbaJS and GSAP..</h3>
+                    <p class="pr">Integrate the BarbaJS JavaScript library into your websites and use CSS and JavaScript techniques to add smooth and interesting effects.</p>
+                    <div class="profile">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Flogo%2Flogo.png?alt=media&token=7db5eef1-c3d9-4993-b97e-1a1797107dd1" alt="">
+                        <div>
+                            <p>by True Coding School</p>
+                            <p>7 live Classes.</p>
+                        </div>
+                    </div>
+                </div>
+                 -->
+                
+            </div>
+        </div>
+        <div id="slide2">
+            <div class="top">
+                <h2>Most Popular Teachers.</h2>
+                <p>Top instructors of sheryians will guide you to transform your career, access our courses to start your journey now.</p>
+                <button>know more</button>
+            </div>
+            <div class="bottom">
+                <div class="card">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2FUntitled%20(2).png?alt=media&token=221811ef-b3cf-4328-a91f-2a3fa155e423" alt="">
+                    <div>
+                        <p>Vikash Baghel</p>
+                        <p>Full Stack Instructor</p>
+                        <p>1000+ Students</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2FRemove%20background%20project%20(3).png?alt=media&token=8e9b01d7-9004-403c-b534-947fa96b6afb" alt="">
+                    <div>
+                        <p>Sundram Jatav</p>
+                        <p>Front-End Developer Instructor</p>
+                        <p>500+ Students</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Falok.jpg?alt=media&token=1540162e-6d6d-47cd-95be-1b11394f6a06" alt="">
+                    <div>
+                        <p>Alok Rathore</p>
+                        <p>Front-End & UI/UX Design Instructor</p>
+                        <p>1200+ Students</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="Sarthak" src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2FRemove%20background%20project%20(1)%20(1).png?alt=media&token=bb4be54c-3b37-4810-898b-7272f0c58bba" alt="">
+                    <div>
+                        <p>Subhash Kumar</p>
+                        <p>Full Stack Web & C Lang Instructor</p>
+                        <p>300+ Students</p>
+                        <!-- <button>new family member</button> -->
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- // slide \\ -->
+        <div id="footer">
+            <div class="left">
+                <div class="content">
+                    <h1>Contact Us</h1>
+                    <p>true.coding.school@gmail.com</p>
+                    <p>23-B, near Chai Sutta Bar, Sector C, Indrapuri Bhopal(MP) 462021</p>
+                    <p>73-B, Near Kapoor's Cafe, Indrapuri Sector C, Bhopal(MP) 462021</p>
+                    <div class="number">
+                        <a href="">+91 9691778470</a>
+                        <a href="">+91 8109161752</a>
+                        <a href="">+91 7828994540</a>
+                    </div>
+                    <div class="icon">
+                        <i class="ri-linkedin-fill"></i>
+                        <i class="ri-facebook-fill"></i>
+                        <i class="ri-reactjs-fill"></i>
+                        <i class="ri-instagram-line"></i>
+                        <i class="ri-youtube-fill"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="content">
+                    <div class="join">
+                        <h1>Join our community</h1>
+                        <button>Join Now</button>
+                    </div>
+                    <p>We often send free tutorials, updates and discounts on future courses. Jump on board, you will love it.</p>
+                </div>
+                <p class="copy">2022 ©️ Sheryians Coding School</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <script>
+        document.body.addEventListener("scroll", function (dets) {
+        console.log(document.querySelector("body").scrollTop)
+        if (document.querySelector("body").scrollTop > 80) {
+            document.querySelector("nav").style.backgroundColor = "white";
+        }
+        else {
+            document.querySelector("nav").style.backgroundColor = "transparent";
+        }
+    })
+    </script> -->
+
+   
+</body>
+</html>

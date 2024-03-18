@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheryians Admin | Add Video</title>
+    <link rel="shortcut icon" href="https://ik.imagekit.io/sheryians/Sheryians_Logo_wFKd9VClG.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://richtexteditor.com/richtexteditor/rte_theme_default.css" />
+    <script type="text/javascript" src="https://richtexteditor.com/richtexteditor/rte.js"></script>
+    <script type="text/javascript" src='https://richtexteditor.com/richtexteditor/plugins/all_plugins.js'></script>
+</head>
+<body class="bg-white text-black dark:bg-slate-900 dark:text-white">
+    <div class="max-w-[1580px] m-auto overflow-hidden scrollbar-hide">
+        <!-- // menu  -->
+        <%- include("menu.ejs")%>
+        
+        <!-- // page   -->
+        <div id="page1" class="w-full h-[91vh] flex">
+            <!-- // nav  left -->
+            <%- include("nav.ejs")%>
+            <!-- // nav right  -->
+            <div class="page1-right w-[100%] md:w-[80%] h-full bg-slate-950 p-3 overflow-auto">
+                <div class="nav2 w-full h-[8vh] flex justify-between items-center bg-slate-800 px-5 border-b-slate-700 border-b">
+                    <h1 class="text-xl font-semibold">Add Videos</h1>
+                    <!-- <a href="#" class="p-[10px] bg-green-800 rounded-sm font-medium text-sm">Add new Video</a> -->
+                </div>
+                <div class="nav2 w-full py-3 bg-slate-800">
+                    <!-- // add Video form  -->
+                    <form action="/admin/add-upload" class="w-full p-2 md:p-7" method="post" enctype="multipart/form-data">
+                        <div class="input flex flex-col mt-3">
+                            <label for="#" class="font-medium">Video Title:</label>
+                            <input type="text" name="title" placeholder="Video Name" class="h-full py-[11px] outline-none bg-slate-800 border-slate-700 border rounded mt-1 px-2" id="">
+                        </div>
+                        <div class="input flex flex-col mt-3">
+                            <label for="#" class="font-medium">Course Select:</label>
+                            <select name="courseid" id="" required class="h-full py-[11px] outline-none bg-slate-800 border-slate-700 border rounded mt-1 px-2 text-sm">
+                                <option value="" disabled selected>Course Select</option>
+                                <% if(courses.length != 0){%>
+                                    <% courses.reverse().forEach(course=>{%>
+                                        <option value="<%= course._id%>" ><%= course.title%></option>
+                                    <%})%>
+                                <%}%>
+                            </select>
+                        </div>
+                        
+                        <div class="input flex flex-col mt-3">
+                            <label for="#" class="font-medium">Video Poster:</label>
+                            <input type="file" accept="image/png,image/jpg,image/jpeg" name="poster" hidden class="input-select h-full py-[8px] bg-slate-800 border-slate-700 border rounded mt-1" id="">
+                            <div class="select-img h-[45px] bg-slate-800 border-slate-700 border rounded mt-1 flex">
+                                <div class="sele-txt w-[80%] md:w-[90%] whitespace-nowrap flex items-center px-3 overflow-hidden">
+                                    <p class="select-p w-[97%] text-ellipsis overflow-hidden text-sm">Select Video Poster</p>
+                                </div>
+                                <div class="select-btn w-[20%] md:w-[10%] flex items-center justify-center bg-slate-600 cursor-pointer hover:bg-slate-700">Browse</div>
+                            </div>
+                        </div>
+                        <div class="input flex flex-col mt-3">
+                            <label for="#" class="font-medium">Select Video:</label>
+                            <input type="file" name="video" accept="video/mp4,video/*" hidden class="input-select h-full py-[8px] bg-slate-800 border-slate-700 border rounded mt-1" id="">
+                            <div class="select-img h-[45px] bg-slate-800 border-slate-700 border rounded mt-1 flex">
+                                <div class="sele-txt w-[80%] md:w-[90%] whitespace-nowrap flex items-center px-3 overflow-hidden">
+                                    <p class="select-p w-[97%] text-ellipsis overflow-hidden text-sm">Select Video</p>
+                                </div>
+                                <div class="select-btn w-[20%] md:w-[10%] flex items-center justify-center bg-slate-600 cursor-pointer hover:bg-slate-700">Browse</div>
+                            </div>
+                        </div>
+                        <div class="input flex flex-col mt-3">
+                            <label for="#" class="font-medium">Video Description:</label>
+                            <textarea type="text" name="des" class="[word-spacing:3px] text-sm min-h-[140px] md:min-h-[240px] py-[11px] outline-none bg-slate-800 border-slate-700 border rounded mt-1 px-3" placeholder="Video Description" id=""></textarea>
+                            <!-- <textarea id="inp_editor1" name="des" class="max-w-[100%] resize-y h-full [word-spacing:3px] text-sm py-[11px] outline-none text-black bg-slate-800 border-slate-700 border rounded mt-1 px-3"></textarea> -->
+                        </div>
+                        <div class="btn mt-3 flex gap-3">
+                            <button class="bg-orange-500 py-2 px-4 text-sm font-medium rounded-sm" type="submit">Submit</button>
+                            <button class="bg-red-500 py-2 px-4 text-sm font-medium rounded-sm" type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var editor1 = new RichTextEditor("#inp_editor1");
+    </script>
+    <script>
+        document.querySelectorAll(".select-btn").forEach((btn,item1)=>{
+            btn.addEventListener("click",()=>{
+                document.querySelectorAll(".input-select").forEach((inpu,item2)=>{
+                    if(item1 == item2){
+                        inpu.click();
+                    }
+                })
+            })
+        })
+        document.querySelectorAll(".input-select").forEach((inpu,item1)=>{
+            inpu.addEventListener("change",()=>{
+                document.querySelectorAll(".select-p").forEach((seleP,item2)=>{
+                    if(item1 == item2){
+                        seleP.textContent = inpu.files[0].name
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

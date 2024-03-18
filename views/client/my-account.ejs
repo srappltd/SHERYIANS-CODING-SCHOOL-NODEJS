@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Flogo%2FUntitled-2-modified.png?alt=media&token=cfd6a158-1040-4e4c-95a4-d88c5cfbdcde" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body::-webkit-scrollbar { 
+            display: none; 
+        } 
+    </style>
+</head>
+<body class="bg-slate-900 select-none">
+    <div id="main" class="max-w-[1580px] m-auto bg-slate-900 text-white relative fill-white stroke-white">
+        <!-- // nav tailwind -->
+        <%- include("nav-tailwind.ejs")%>
+
+        <div class="page w-full md:h-[92vh] flex gap-4 py-[10px] px-[15px] md:py-[30px] md:px-[100px] relative flex-col md:flex-row">
+            <div class="pgel w-[100%] md:w-[30%] h-8 hidden md:h-full md:flex items-center md:items-start md:flex-col justify-between">
+                <h1 class="font-bold text-xl md:text-3xl">Account Center</h1>
+                <a href="/logout" class="py-[10px] px-3 bg-green-500 border-none rounded-sm mt-7 md:absolute bottom-5 font-medium text-sm flex items-center gap-1 justify-center">Logout <?xml version="1.0" ?><svg fill="none" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M15 3H7C5.89543 3 5 3.89543 5 5V19C5 20.1046 5.89543 21 7 21H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path d="M19 12L15 8M19 12L15 16M19 12H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></a>
+            </div>
+            <div class="pger w-[100%] md:w-[70%] h-full flex flex-col pt-[30px]">
+                <p class="font-medium text-xl">Personal Details</p>
+                <div class="flex gap-5 items-center mt-5">
+                    <div class="img w-[80px] h-[80px] md:w-[90px] md:h-[90px] flex-shrink-0 relative">
+                        <% if(user.picture != ""){%>
+                            <img id="picture" src="../../admin/user-pic/<%= user.picture%>" class="w-[80px] h-[80px] md:w-[90px] md:h-[90px] flex-shrink-0 object-cover rounded-full border border-slate-600" alt="">
+                            <%}else{%>
+                                <img id="picture" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Ic_account_circle_48px.svg/1200px-Ic_account_circle_48px.svg.png" class="w-[80px] h-[80px] md:w-[90px] md:h-[90px] flex-shrink-0 object-cover rounded-full border border-slate-600" alt="">
+                            <%}%>
+                        <div class="icon cursor-pointer w-[25px] h-[25px] rounded-full flex items-center justify-center bg-slate-700 hover:bg-slate-800 p-[6px] absolute bottom-0 right-0">
+                            <?xml version="1.0" ?><svg class="fill-white" height="18px" version="1.1" viewBox="0 0 18 18" width="18px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#fff" id="Core" transform="translate(-213.000000, -129.000000)"><g id="create" transform="translate(213.000000, 129.000000)"><path d="M0,14.2 L0,18 L3.8,18 L14.8,6.9 L11,3.1 L0,14.2 L0,14.2 Z M17.7,4 C18.1,3.6 18.1,3 17.7,2.6 L15.4,0.3 C15,-0.1 14.4,-0.1 14,0.3 L12.2,2.1 L16,5.9 L17.7,4 L17.7,4 Z" id="Shape"/></g></g></g></svg>
+                        </div>
+                        <form id="pic-submit" class="hidden" action="/pic-change" method="post" enctype="multipart/form-data">
+                            <input class="input-pic" type="file" name="picture" accept="image/png,image/jpg,image/webp,image/jpeg">
+                        </form>
+                    </div>
+                    <div>
+                        <h1 class="font-semibold text-[20px] tracking-[1px] leading-[1.2] uppercase"><%= user.username%></h1>
+                        <p class="flex items-center gap-3 font-medium text-sm text-slate-400"><span>Student</span> | <span><%= user.email%></span></p>
+                    </div>
+                </div>
+                <script>
+                    document.querySelector(".icon").addEventListener("click",()=>{
+                        document.querySelector(".input-pic").click()
+                    })
+                    document.querySelector(".input-pic").addEventListener("change",()=>{
+                        document.querySelector("#picture").src = URL.createObjectURL(document.querySelector(".input-pic").files[0])
+                        document.querySelector("#pic-submit").submit()
+                    })
+                </script>
+
+                <form class="mt-7">
+                    <div class="w-[100%] gap-6 md:gap-6 flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/2 flex flex-col gap-1">
+                            <label for="" class="font-medium text-xs">Full Name</label>
+                            <input type="text" name="username" placeholder="Full name" value="<%= user.username%>" class="p-2 rounded-sm outline-none bg-slate-900 border border-slate-600">
+                        </div>
+                        <div class="w-full md:w-1/2 flex flex-col gap-1">
+                            <label for="" class="font-medium text-xs">Email Address</label>
+                            <input type="text" name="email" disabled placeholder="Email Address" value="<%= user.email%>" class="p-2 outline-none rounded-sm bg-slate-900 border border-slate-600">
+                        </div>
+                    </div>
+                    <div class="w-[100%] gap-6 md:gap-6 flex mt-7 flex-col md:flex-row">
+                        <div class="w-full md:w-1/2 flex flex-col gap-1">
+                            <label for="" class="font-medium text-xs">Contact Number</label>
+                            <input type="text" name="mobile" placeholder="Contact Number" value="<%= user.mobile%>" class="p-2 outline-none rounded-sm bg-slate-900 border border-slate-600">
+                        </div>
+                        <div class="w-full md:w-1/2 flex flex-col gap-1">
+                            <label for="" class="font-medium text-xs">Occupation</label>
+                            <select name="occupation" class="py-3 px-2 rounded-sm bg-slate-900 border outline-none border-slate-600" id="">
+                                <option value="" disabled selected>Select occuption</option>
+                                <option value="Student">Student</option>
+                                <option value="Work Professional">Work Professional</option>
+                                <option value="Intern">Intern</option>
+                                <option value="Freelancer">Freelancer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="w-[100%] gap-6 md:gap-6 flex mt-7 flex-col md:flex-row">
+                        <div class="w-full md:w-1/2 flex flex-col gap-1">
+                            <label for="" class="font-medium text-xs">Location</label>
+                            <input type="text" name="location" placeholder="Location" value="<%= user.address%>" class="p-2 rounded-sm outline-none bg-slate-900 border border-slate-600">
+                        </div>
+                        <div class="w-full md:w-1/2 flex flex-col gap-1">
+                            <label for="" class="font-medium text-xs">Joining date</label>
+                            <input type="text" name="join" disabled placeholder="Joining Date" value="<%= user.date%>" class="p-2 outline-none rounded-sm bg-slate-900 border border-slate-600">
+                        </div>
+                    </div>
+                    <button class="py-[10px] px-3 bg-red-500 hover:bg-red-600 border-none rounded-sm mt-7 md:absolute bottom-5 font-medium text-sm">Update Details</button>
+                </form>
+            </div>
+        </div>
+    <script>
+        
+
+        let flag = '<%= user.theme%>'
+        // theme create 
+        let menu = document.querySelectorAll("#main,.theme-icon,.nav,body,input,select")
+        let menupg = document.querySelectorAll(".menu-pg")
+
+            if(flag == 0){
+                menu.forEach(elem=>{
+                    elem.classList.remove("bg-slate-900")
+                    elem.classList.remove("text-white")
+                    elem.classList.remove("fill-white")
+                    elem.classList.remove("stroke-white")
+                    elem.classList.add("fill-black")
+                    elem.classList.add("stroke-black")
+                    elem.classList.add("bg-white")
+                    elem.classList.add("text-black")
+                })
+                menupg.forEach(elem=>{
+                    elem.classList.remove("bg-slate-700")
+                    elem.classList.add("bg-slate-200")
+                    elem.querySelector(".top-me").classList.remove("bg-slate-600")
+                    elem.querySelector(".top-me").classList.add("bg-slate-300")
+                })
+                document.querySelectorAll(".top-hover").forEach(elem=>{
+                    elem.classList.remove("hover:bg-slate-600")
+                    elem.classList.add("hover:bg-slate-300")
+                })
+                
+                
+                
+                
+                flag = 1
+            }else{
+                menu.forEach(elem=>{
+                    elem.classList.add("bg-slate-900")
+                    elem.classList.add("text-white")
+                    elem.classList.add("fill-white")
+                    elem.classList.add("stroke-white")
+                    elem.classList.remove("fill-black")
+                    elem.classList.remove("stroke-black")
+                    elem.classList.remove("bg-white")
+                    elem.classList.remove("text-black")
+                })
+                
+                
+                flag = 0
+            }
+    </script>
+</body>
+</html>

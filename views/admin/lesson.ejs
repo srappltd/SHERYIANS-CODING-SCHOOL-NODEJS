@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheryians Admin | Lessons</title>
+    <link rel="shortcut icon" href="https://ik.imagekit.io/sheryians/Sheryians_Logo_wFKd9VClG.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black dark:bg-slate-900 dark:text-white">
+    <div class="max-w-[1580px] m-auto overflow-auto scrollbar-hide">
+        <!-- // menu  -->
+        <%- include("menu.ejs")%>
+        
+        <!-- // page   -->
+        <div id="page1" class="w-full h-[91vh] flex">
+            <!-- // nav  left -->
+            <%- include("nav.ejs")%>
+            <!-- // nav right  -->
+
+            <div class="page1-right w-[100%] md:w-[80%] h-full bg-slate-950 p-3 overflow-auto">
+                <div class="nav2 w-full h-[8vh] flex justify-between items-center bg-slate-800 px-5">
+                    <h1 class="text-xl font-semibold">Lesson Lists</h1>
+                    <a href="/admin/add-lesson?courseid=<%= courseid%>" class="p-[10px] bg-green-800 rounded-sm font-medium text-sm">Add new Lesson</a>
+                </div>
+                <div class="nav2 w-full px-5 py-3 overflow-auto">
+                    <table class="w-full border border-collapse">
+                        <tr class="w-full border-collapse">
+                            <th class="border border-collapse border-slate-500 p-1 w-[5%]">No.</th>
+                            <th class="border border-collapse border-slate-500 p-1 w-[20%]">Lesson Name</th>
+                            <th class="border border-collapse border-slate-500 p-1 w-[20%]">Lesson Heading</th>
+                            <th class="border border-collapse border-slate-500 p-1 w-[40%]">Lesson Description</th>
+                            <th class="border border-collapse border-slate-500 p-1 w-[10%]">Action</th>
+                        </tr>
+                        <% if(lessons.length != 0){%>
+                            <% lessons.forEach((lesson,index)=>{%>
+                                <tr class="w-full border-collapse">
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 py-1"><%= index + 1%></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1"><p class="line-clamp-2"><%= lesson.lesson%></p></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1"><p class="line-clamp-2"><%= lesson.heading%></p></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 overflow-hidden"><p class="line-clamp-3 overflow-hidden"><%- lesson.des%></p></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-4 p-1">
+                                        <a href="" class="edit p-2 bg-slate-600 rounded-sm hover:bg-slate-500 w-[28px] h-[28px] flex justify-center items-center"><?xml version="1.0" ?><svg class="w-[30px] h-[30px] fill-white" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><title/><g><path d="M78,60a5.9966,5.9966,0,0,0-6,6V84H12V24H30a6,6,0,0,0,0-12H6a5.9966,5.9966,0,0,0-6,6V90a5.9966,5.9966,0,0,0,6,6H78a5.9966,5.9966,0,0,0,6-6V66A5.9966,5.9966,0,0,0,78,60Z"/><path d="M94.2422,13.7578l-12-12a5.9979,5.9979,0,0,0-8.4844,0l-36,36A5.9958,5.9958,0,0,0,36,42V54a5.9966,5.9966,0,0,0,6,6H54a5.9956,5.9956,0,0,0,4.2422-1.7578l36-36A5.9979,5.9979,0,0,0,94.2422,13.7578ZM51.5156,48H48V44.4844l30-30L81.5156,18Z"/></g></svg></div>
+                                        <a href="/admin/lesson-delete?lesson=<%= lesson._id%>" class="delete p-2 bg-slate-600 rounded-sm hover:bg-slate-500 w-[28px] h-[28px] flex justify-center items-center mt-2"><?xml version="1.0" ?><svg height="18px" version="1.1" viewBox="0 0 14 18" width="14px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="white" stroke-width="1"><g fill="none" id="Core" transform="translate(-299.000000, -129.000000)"><g id="delete" transform="translate(299.000000, 129.000000)"><path d="M1,16 C1,17.1 1.9,18 3,18 L11,18 C12.1,18 13,17.1 13,16 L13,4 L1,4 L1,16 L1,16 Z M14,1 L10.5,1 L9.5,0 L4.5,0 L3.5,1 L0,1 L0,3 L14,3 L14,1 L14,1 Z" id="Shape"/></g></g></g></svg></div>
+                                    </td>
+                                </tr>
+                            <%})%>
+                        <%}%>
+                        
+                        
+                        
+                    </table>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

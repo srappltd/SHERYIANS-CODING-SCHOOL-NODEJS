@@ -1,0 +1,27 @@
+{
+  "name": "sheryians-website-nodejs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "@ngrok/ngrok": "^0.9.1",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.3.1",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.3",
+    "get-video-duration": "^4.1.0",
+    "helmet": "^7.1.0",
+    "http-errors": "~1.6.3",
+    "mongoose": "^8.0.3",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.1",
+    "uuid": "^9.0.1"
+  }
+}

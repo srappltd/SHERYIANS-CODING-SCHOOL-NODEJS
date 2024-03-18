@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheryians Admin | Users</title>
+    <link rel="shortcut icon" href="https://ik.imagekit.io/sheryians/Sheryians_Logo_wFKd9VClG.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black dark:bg-slate-900 dark:text-white">
+    <div class="max-w-[1580px] m-auto overflow-auto scrollbar-hide">
+        <!-- // menu  -->
+        <%- include("menu.ejs")%>
+        
+
+        <!-- // page   -->
+        <div id="page1" class="w-full h-[91vh] flex">
+            <!-- // nav  left -->
+            <%- include("nav.ejs")%>
+            <!-- // nav right  -->
+            <div class="page1-right w-[100%] md:w-[80%] h-full bg-slate-950 p-3 overflow-auto">
+                <div class="nav2 w-full h-[8vh] flex justify-between items-center bg-slate-800 px-5">
+                    <h1 class="text-xl font-semibold">Users Lists</h1>
+                    <a href="/admin/add-users" class="p-[10px] bg-green-800 rounded-sm font-medium text-sm">Add new user</a>
+                </div>
+                <!-- // desktop mode  -->
+                <div class="nav2 w-full px-5 py-3 hidden md:block">
+                    <table class="w-full border border-collapse">
+                        <tr class="w-full border-collapse">
+                            <th class="border border-collapse border-slate-500 p-1">No.</th>
+                            <th class="border border-collapse border-slate-500 p-1 hidden md:block">User Image</th>
+                            <th class="border border-collapse border-slate-500 p-1">User Name</th>
+                            <th class="border border-collapse border-slate-500 p-1">Email</th>
+                            <th class="border border-collapse border-slate-500 p-1">Contact</th>
+                            <th class="border border-collapse border-slate-500 p-1">Join Date</th>
+                            <th class="border border-collapse border-slate-500 p-1">MAC Address</th>
+                            <th class="border border-collapse border-slate-500 p-1">Action</th>
+                        </tr>
+                        <% if(users.length != 0){%>
+                            <% users.reverse().forEach((user,index)=>{%>
+                                <tr class="w-full border-collapse">
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 py-1"><%= index + 1%></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 py-3 hidden items-center justify-center md:flex"><img class="w-[70px] h-[70px] md:w-[100px] md:h-[100px] rounded-full object-cover object-center" src="../../admin/user-pic/<%= user.picture%>" alt=""></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 md:w-[180px]"><%= user.username%></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 md:w-[150px] overflow-hidden"><p class="flex flex-wrap w-full"><%= user.email%></p></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1">+91 6260396658</td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 md:w-[180px]"><%= user.date%></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 relative"><a href="#"><%= user.mac%></a></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1">
+                                        <a href="" class="edit p-2 bg-slate-600 rounded-sm hover:bg-slate-500 w-[28px] h-[28px] flex justify-center items-center"><?xml version="1.0" ?><svg class="w-[30px] h-[30px] fill-white" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><title/><g><path d="M78,60a5.9966,5.9966,0,0,0-6,6V84H12V24H30a6,6,0,0,0,0-12H6a5.9966,5.9966,0,0,0-6,6V90a5.9966,5.9966,0,0,0,6,6H78a5.9966,5.9966,0,0,0,6-6V66A5.9966,5.9966,0,0,0,78,60Z"/><path d="M94.2422,13.7578l-12-12a5.9979,5.9979,0,0,0-8.4844,0l-36,36A5.9958,5.9958,0,0,0,36,42V54a5.9966,5.9966,0,0,0,6,6H54a5.9956,5.9956,0,0,0,4.2422-1.7578l36-36A5.9979,5.9979,0,0,0,94.2422,13.7578ZM51.5156,48H48V44.4844l30-30L81.5156,18Z"/></g></svg></div>
+                                        <a href="/user-delete/<%= user._id%>" class="delete p-2 bg-slate-600 rounded-sm hover:bg-slate-500 w-[28px] h-[28px] flex justify-center items-center mt-2"><?xml version="1.0" ?><svg height="18px" version="1.1" viewBox="0 0 14 18" width="14px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="white" stroke-width="1"><g fill="none" id="Core" transform="translate(-299.000000, -129.000000)"><g id="delete" transform="translate(299.000000, 129.000000)"><path d="M1,16 C1,17.1 1.9,18 3,18 L11,18 C12.1,18 13,17.1 13,16 L13,4 L1,4 L1,16 L1,16 Z M14,1 L10.5,1 L9.5,0 L4.5,0 L3.5,1 L0,1 L0,3 L14,3 L14,1 L14,1 Z" id="Shape"/></g></g></g></svg></div>
+                                    </td>
+                                </tr>
+                            <%})%>
+                        <%}%>
+                    </table>
+                </div>
+                
+                <!-- // responsive  -->
+                <div class="w-full md:hidden">
+                    <div class="w-full h-[40px] p-2 mt-2 bg-slate-800 flex items-center gap-2 border-b border-slate-600">
+                        <div class="flex gap-3 w-full overflow-hidden">
+                            <h1 class="font-bold">No.</h1>
+                            <h1 class="ml-3 font-bold">Picture</h1>
+                            <h1 class="ml-1 font-bold w-[80%] whitespace-nowrap text-ellipsis overflow-hidden">Name</h1>
+                        </div>
+                        <div class="ic ml-auto"><?xml version="1.0" ?><svg class="w-[24px] h-[24px] fill-white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="12" r="2" stroke="black"/><circle cx="12" cy="12" r="2" stroke="black"/><circle cx="19" cy="12" r="2" stroke="black"/></svg></div>
+                    </div>
+                    <% if(users.length != 0){%>
+                        <% users.forEach((user,index)=>{%>
+                            <div class="resp w-full p-2 bg-slate-800 flex items-center gap-2 border-b border-slate-600 relative" data-id="<%= user._id%>" data-user="<%= user.username%>" data-email="<%= user.email%>" data-join="<%= user.date%>" data-id="<%= user.mobile%>"  data-mac="<%= user.mac%>" data-pic="../../admin/user-pic/<%= user.picture%>">
+                                <div class="flex items-center gap-3 w-full overflow-hidden">
+                                    <h1 class="font-bold w-[25px] whitespace-nowrap"><%= index + 1%></h1>
+                                    <% if(user.picture != ""){%>
+                                        <h1 class="ml-3 font-bold"><img class="w-[40px] h-[40px] rounded" src="../../admin/user-pic/<%= user.picture%>" alt=""></h1>
+                                        <%}else{%>
+                                        <h1 class="ml-3 font-bold"><img class="w-[40px] h-[40px] rounded" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Ic_account_circle_48px.svg/1200px-Ic_account_circle_48px.svg.png" alt=""></h1>
+                                    <%}%>
+                                    <h1 class="ml-4 font-normal w-[60%] whitespace-nowrap text-ellipsis overflow-hidden"><%= user.username%></h1>
+                                </div>
+                                <div class="ic ml-auto w-[30px] h-[30px] rounded-full hover:bg-slate-500 flex-shrink-0 flex items-center justify-center"><?xml version="1.0" ?><svg class="w-[24px] h-[24px] fill-white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="12" r="2" stroke="black"/><circle cx="12" cy="12" r="2" stroke="black"/><circle cx="19" cy="12" r="2" stroke="black"/></svg></div>
+                                <div class="mn w-[130px] min-h-[140px] hidden bg-white absolute bottom-0 right-0 overflow-hidden top-[45px] z-20 rounded">
+                                    <a class="data-add flex items-center gap-2 p-2 py-[10px] font-bold text-black hover:bg-slate-500"><?xml version="1.0" ?><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9,20 L9,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,4 C1,2.8954305 1.8954305,2 3,2 L21,2 C22.1045695,2 23,2.8954305 23,4 L23,17 C23,18.1045695 22.1045695,19 21,19 L15,19 L15,20 L17,20 L17,22 L7,22 L7,20 L9,20 Z M3,17 L21,17 L21,4 L3,4 L3,17 Z" fill-rule="evenodd"/></svg> Show</a>
+                                    <a href="#" class="edit flex items-center gap-2 p-2 py-[10px] font-bold mt-1 text-black hover:bg-slate-500"><?xml version="1.0" ?><svg id="Layer_1" class="w-[24px] h-[24px]" style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M19.607,18.746c0,0.881-0.716,1.624-1.597,1.624H5.231c-0.881,0-1.597-0.743-1.597-1.624V5.967  c0-0.881,0.716-1.571,1.597-1.571h7.454V3.332H5.231c-1.468,0-2.662,1.168-2.662,2.636v12.778c0,1.468,1.194,2.688,2.662,2.688  h12.778c1.468,0,2.662-1.221,2.662-2.688v-7.428h-1.065V18.746z"/><path d="M20.807,3.17c-0.804-0.805-2.207-0.805-3.012,0l-7.143,7.143c-0.068,0.068-0.117,0.154-0.14,0.247L9.76,13.571  c-0.045,0.181,0.008,0.373,0.14,0.506c0.101,0.101,0.237,0.156,0.376,0.156c0.043,0,0.086-0.005,0.129-0.016l3.012-0.753  c0.094-0.023,0.179-0.072,0.247-0.14l7.143-7.143c0.402-0.402,0.624-0.937,0.624-1.506S21.21,3.572,20.807,3.17z M13.016,12.467  l-2.008,0.502l0.502-2.008l5.909-5.909l1.506,1.506L13.016,12.467z M20.054,5.428l-0.376,0.376l-1.506-1.506l0.376-0.376  c0.402-0.402,1.104-0.402,1.506,0c0.201,0.201,0.312,0.468,0.312,0.753C20.366,4.96,20.255,5.227,20.054,5.428z"/></svg> Edit</a>
+                                    <a href="#" class="delete flex items-center gap-2 p-2 py-[10px] font-bold mt-1 text-black hover:bg-slate-500"><?xml version="1.0" ?><svg height="24" viewBox="0 0 48 48" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0V0z" fill="none"/><path d="M12 38c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V14H12v24zm4.93-14.24l2.83-2.83L24 25.17l4.24-4.24 2.83 2.83L26.83 28l4.24 4.24-2.83 2.83L24 30.83l-4.24 4.24-2.83-2.83L21.17 28l-4.24-4.24zM31 8l-2-2H19l-2 2h-7v4h28V8z"/><path d="M0 0h48v48H0z" fill="none"/></svg> Delete</a>
+                                </div>
+                            </div>
+                        <%})%>
+                    <%}%>
+                    <div class="user-data w-full h-full bg-[#3434349e] fixed z-[99999999] bottom-[-100%] transition-all left-0 overflow-auto">
+                        <div class="nv mr-auto h-[10vh] flex justify-end px-[20px] bg-slate-800 pt-7">
+                            <div class="close">
+                                <?xml version="1.0" ?><svg class="w-[35px] h-[35px] fill-white stroke-white" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs></defs><title/><g id="cross"><line class="cls-1" x1="7" x2="25" y1="7" y2="25"/><line class="cls-1" x1="7" x2="25" y1="25" y2="7"/></g></svg>
+                            </div>
+                        </div>
+                        <div class="btm w-full h-[95vh] bg-slate-800 bottom-0 flex flex-col gap-3 items-center p-4 overflow-auto">
+                            <h1 class="font-semibold text-2xl">Show</h1>
+                            <img class="user-pic-img w-[130px] flex-shrink-0 h-[130px] border border-slate-500 rounded-lg" src="" alt="">
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium">Userid:</p>
+                                <p class="userid-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded">1234567890</p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium capitalize">Username:</p>
+                                <p class="username-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded">Abhay Gautam</p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium lowercase">Email:</p>
+                                <p class="useremail-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded">abhay@gmail.com</p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium lowercase">Mobile:</p>
+                                <p class="usermobile-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded">+91 6260396658</p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium lowercase">Joining Date:</p>
+                                <p class="userjoin-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded">12/12/2023</p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium lowercase">Mac Address:</p>
+                                <p class="usermac-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded"></p>
+                            </div>
+
+                            <div class="w-full flex gap-3 items-center">
+                                <a href="#" class="edit flex items-center gap-2 px-6 rounded-sm fill-white text-white py-[10px] font-bold mt-1 bg-green-500 hover:bg-green-600"><?xml version="1.0" ?><svg id="Layer_1" class="w-[24px] h-[24px]" style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M19.607,18.746c0,0.881-0.716,1.624-1.597,1.624H5.231c-0.881,0-1.597-0.743-1.597-1.624V5.967  c0-0.881,0.716-1.571,1.597-1.571h7.454V3.332H5.231c-1.468,0-2.662,1.168-2.662,2.636v12.778c0,1.468,1.194,2.688,2.662,2.688  h12.778c1.468,0,2.662-1.221,2.662-2.688v-7.428h-1.065V18.746z"/><path d="M20.807,3.17c-0.804-0.805-2.207-0.805-3.012,0l-7.143,7.143c-0.068,0.068-0.117,0.154-0.14,0.247L9.76,13.571  c-0.045,0.181,0.008,0.373,0.14,0.506c0.101,0.101,0.237,0.156,0.376,0.156c0.043,0,0.086-0.005,0.129-0.016l3.012-0.753  c0.094-0.023,0.179-0.072,0.247-0.14l7.143-7.143c0.402-0.402,0.624-0.937,0.624-1.506S21.21,3.572,20.807,3.17z M13.016,12.467  l-2.008,0.502l0.502-2.008l5.909-5.909l1.506,1.506L13.016,12.467z M20.054,5.428l-0.376,0.376l-1.506-1.506l0.376-0.376  c0.402-0.402,1.104-0.402,1.506,0c0.201,0.201,0.312,0.468,0.312,0.753C20.366,4.96,20.255,5.227,20.054,5.428z"/></svg> Edit</a>
+                                <a href="#" class="delete-res flex items-center gap-2 px-6 rounded-sm fill-white text-white py-[10px] font-bold mt-1 hover:bg-red-600 bg-red-500"><?xml version="1.0" ?><svg height="24" viewBox="0 0 48 48" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0V0z" fill="none"/><path d="M12 38c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V14H12v24zm4.93-14.24l2.83-2.83L24 25.17l4.24-4.24 2.83 2.83L26.83 28l4.24 4.24-2.83 2.83L24 30.83l-4.24 4.24-2.83-2.83L21.17 28l-4.24-4.24zM31 8l-2-2H19l-2 2h-7v4h28V8z"/><path d="M0 0h48v48H0z" fill="none"/></svg> Delete</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <script>
+                        document.querySelectorAll(".resp").forEach((elem,index)=>{
+                            let asdf = 0;
+                            elem.querySelector(".ic").addEventListener("click",()=>{
+                                if(asdf == 0){
+                                    document.querySelectorAll(".mn").forEach(el=>{
+                                        el.classList.add("hidden")
+                                    })
+                                    elem.querySelector(".mn").classList.remove("hidden")
+                                    elem.querySelector(".mn").classList.add("block")
+                                    asdf = 1
+                                }else{
+                                    document.querySelectorAll(".mn").forEach(el=>{
+                                        el.classList.add("hidden")
+                                        asdf = 0
+                                    })
+                                    asdf = 0
+                                }
+                            })
+                            elem.querySelector(".data-add").addEventListener("click",()=>{
+                                document.querySelectorAll(".mn").forEach(el=>{
+                                        document.querySelector(".userid-p").textContent = elem.dataset.id
+                                        document.querySelector(".delete-res").href = `/user-delete/${elem.dataset.id}`
+                                        document.querySelector(".username-p").textContent = elem.dataset.user
+                                        document.querySelector(".useremail-p").textContent = elem.dataset.email
+                                        document.querySelector(".usermobile-p").textContent = elem.dataset.mobile
+                                        document.querySelector(".userjoin-p").textContent = elem.dataset.join
+                                        document.querySelector(".usermac-p").textContent = elem.dataset.mac
+                                        document.querySelector(".user-pic-img").src = elem.dataset.pic
+                                        el.classList.add("hidden")
+                                        asdf = 0
+                                    })
+                                document.querySelector(".user-data").classList.remove("bottom-[-100%]")
+                                document.querySelector(".user-data").classList.add("bottom-[0%]")
+                            })
+                        })
+                        document.querySelector(".close").addEventListener("click",()=>{
+                            document.querySelector(".user-data").classList.add("bottom-[-100%]")
+                                document.querySelector(".user-data").classList.remove("bottom-[0%]")
+                        })
+                    </script>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

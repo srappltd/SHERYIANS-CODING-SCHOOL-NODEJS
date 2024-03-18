@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheryians Admin | Uploads</title>
+    <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="https://ik.imagekit.io/sheryians/Sheryians_Logo_wFKd9VClG.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black dark:bg-slate-900 dark:text-white">
+    <div class="max-w-[1580px] m-auto overflow-auto scrollbar-hide">
+        <!-- // menu  -->
+        <%- include("menu.ejs")%>
+        
+        <!-- // page   -->
+        <div id="page1" class="w-full h-[91vh] flex">
+            <!-- // nav  left -->
+            <%- include('nav.ejs')%>
+            <!-- // nav right  -->
+
+            <div class="page1-right w-[100%] md:w-[80%] h-full bg-slate-950 p-3 overflow-auto">
+                <div class="nav2 w-full h-[8vh] flex justify-between items-center bg-slate-800 px-5">
+                    <h1 class="text-xl font-semibold">book Lists</h1>
+                    <a href="/admin/add-upload" class="p-[10px] bg-green-800 rounded-sm font-medium text-sm">Add new Video</a>
+                </div>
+                <div class="nav2 w-full px-5 py-3 hidden md:block">
+                    <table class="w-full border border-collapse">
+                        <tr class="w-full border-collapse">
+                            <th class="border border-collapse border-slate-500 p-1">No.</th>
+                            <th class="border border-collapse border-slate-500 p-1">Video Image</th>
+                            <th class="border border-collapse border-slate-500 p-1">Video Title</th>
+                            <th class="border border-collapse border-slate-500 p-1">Course Name</th>
+                            <th class="border border-collapse border-slate-500 p-1">Mentor Name</th>
+                            <th class="border border-collapse border-slate-500 p-1">Video Description</th>
+                            <th class="border border-collapse border-slate-500 p-1">Video</th>
+                            <th class="border border-collapse border-slate-500 p-1">Action</th>
+                        </tr>
+                        <% if(uploads.length != 0){%>
+                            <% uploads.reverse().forEach((upload,index)=>{%>
+                                <tr class="w-full border-collapse">
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 py-1 w-[30px] flex-shrink-0"><%= index + 1%></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 py-1 w-[190px] flex-shrink-0"><img class="w-[170px] h-[75%] rounded" src="../../admin/uploads/<%= upload.poster%>" alt=""></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 w-[180px] flex-shrink-0"><p class="line-clamp-3 overflow-hidden"><%= upload.title%></p></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 w-[200px] flex-shrink-0"><%= upload.courseid.title%></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 w-[170px] flex-shrink-0"><%= upload.mentorid.username%></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 w-[180px] flex-shrink-0"><p class="line-clamp-3 overflow-hidden"><%= upload.des%></p></td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 relative w-[40px]">
+                                        <svg class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] fill-slate-400 stroke-slate-400" enable-background="new 0 0 32 32" height="32px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M30,6h-0.887c-0.525,0-1.029,0.207-1.404,0.576L25,9.248V8c0-1.657-1.344-3-3-3H3  C1.346,5,0,6.345,0,8v6.972V24c0,1.656,1.343,3,3,3h19c1.656,0,3-1.344,3-3v-1.221l2.709,2.672c0.375,0.369,0.879,0.576,1.404,0.576  H30c1.104,0,2-0.895,2-2V8C32,6.895,31.104,6,30,6z M3,25c-0.552,0-1-0.449-1-1V8c0-0.553,0.447-1,1-1h19c0.551,0,1,0.448,1,1v16  c0,0.551-0.449,1-1,1H3z M30,24.027h-0.887H29l-4-4V20l-1-1v-6l5-5h0.113H30V24.027z" id="video"/></svg>
+                                        <!-- <svg class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]" fill="currentColor" height="24" viewBox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM1.6 11.85H0v3.999h.791v-1.342h.803c.287 0 .531-.057.732-.173.203-.117.358-.275.463-.474a1.42 1.42 0 0 0 .161-.677c0-.25-.053-.476-.158-.677a1.176 1.176 0 0 0-.46-.477c-.2-.12-.443-.179-.732-.179Zm.545 1.333a.795.795 0 0 1-.085.38.574.574 0 0 1-.238.241.794.794 0 0 1-.375.082H.788V12.48h.66c.218 0 .389.06.512.181.123.122.185.296.185.522Zm1.217-1.333v3.999h1.46c.401 0 .734-.08.998-.237a1.45 1.45 0 0 0 .595-.689c.13-.3.196-.662.196-1.084 0-.42-.065-.778-.196-1.075a1.426 1.426 0 0 0-.589-.68c-.264-.156-.599-.234-1.005-.234H3.362Zm.791.645h.563c.248 0 .45.05.609.152a.89.89 0 0 1 .354.454c.079.201.118.452.118.753a2.3 2.3 0 0 1-.068.592 1.14 1.14 0 0 1-.196.422.8.8 0 0 1-.334.252 1.298 1.298 0 0 1-.483.082h-.563v-2.707Zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638H7.896Z" fill-rule="evenodd"/></svg> -->
+                                    </td>
+                                    <td class="h-[23vh] font-extralight text-slate-300 border border-collapse border-slate-500 text-left px-2 p-1 w-[80px]">
+                                        <a href="" class="edit p-2 bg-slate-600 rounded-sm hover:bg-slate-500 w-[28px] h-[28px] flex justify-center items-center"><?xml version="1.0" ?><svg class="w-[30px] h-[30px] fill-white" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><title/><g><path d="M78,60a5.9966,5.9966,0,0,0-6,6V84H12V24H30a6,6,0,0,0,0-12H6a5.9966,5.9966,0,0,0-6,6V90a5.9966,5.9966,0,0,0,6,6H78a5.9966,5.9966,0,0,0,6-6V66A5.9966,5.9966,0,0,0,78,60Z"/><path d="M94.2422,13.7578l-12-12a5.9979,5.9979,0,0,0-8.4844,0l-36,36A5.9958,5.9958,0,0,0,36,42V54a5.9966,5.9966,0,0,0,6,6H54a5.9956,5.9956,0,0,0,4.2422-1.7578l36-36A5.9979,5.9979,0,0,0,94.2422,13.7578ZM51.5156,48H48V44.4844l30-30L81.5156,18Z"/></g></svg></div>
+                                        <a href="/admin/video-delete?video=<%= upload._id%>" class="delete p-2 bg-slate-600 rounded-sm hover:bg-slate-500 w-[28px] h-[28px] flex justify-center items-center mt-2"><?xml version="1.0" ?><svg height="18px" version="1.1" viewBox="0 0 14 18" width="14px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="white" stroke-width="1"><g fill="none" id="Core" transform="translate(-299.000000, -129.000000)"><g id="delete" transform="translate(299.000000, 129.000000)"><path d="M1,16 C1,17.1 1.9,18 3,18 L11,18 C12.1,18 13,17.1 13,16 L13,4 L1,4 L1,16 L1,16 Z M14,1 L10.5,1 L9.5,0 L4.5,0 L3.5,1 L0,1 L0,3 L14,3 L14,1 L14,1 Z" id="Shape"/></g></g></g></svg></div>
+                                    </td>
+                                </tr>
+                            <%})%>
+                        <%}%>
+                    </table>
+                </div>
+                
+                <!-- // responsive  -->
+                <div class="w-full md:hidden">
+                    <div class="w-full h-[40px] p-2 mt-2 bg-slate-800 flex items-center gap-2 border-b border-slate-600">
+                        <div class="flex gap-3 w-full overflow-hidden">
+                            <h1 class="font-bold">No.</h1>
+                            <h1 class="ml-3 font-bold">Picture</h1>
+                            <h1 class="ml-1 font-bold w-[80%] whitespace-nowrap text-ellipsis overflow-hidden">Name</h1>
+                        </div>
+                        <div class="ic ml-auto"><?xml version="1.0" ?><svg class="w-[24px] h-[24px] fill-white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="12" r="2" stroke="black"/><circle cx="12" cy="12" r="2" stroke="black"/><circle cx="19" cy="12" r="2" stroke="black"/></svg></div>
+                    </div>
+                    <% if(uploads.length != 0){%>
+                        <% uploads.forEach((upload,index)=>{%>
+                            <div class="resp w-full p-2 bg-slate-800 flex items-center gap-2 border-b border-slate-600 relative">
+                                <div class="dates hidden" data-id="<%= upload._id%>" data-title="<%= upload.title%>" data-date="<%= upload.date%>" data-des="<%= upload.des%>" data-like="<%= upload.likes.length%>"data-dislike="<%= upload.dislikes.length%>" data-course="<%= upload.courseid.title%>" data-mentor="<%= upload.mentorid.username%>" data-duration="<%= upload.duration%>"  data-mac="<%= upload.mac%>" data-pic="../../admin/uploads/<%= upload.poster%>" data-url="../../admin/uploads/<%= upload.url%>"></div>
+                                <div class="flex items-center gap-3 w-full overflow-hidden">
+                                    <h1 class="font-bold w-[25px] whitespace-nowrap"><%= index + 1%></h1>
+                                    <h1 class="ml-3 font-bold"><img class="w-[40px] h-[40px] rounded" src="../../admin/uploads/<%= upload.poster%>" alt=""></h1>
+                                    <h1 class="ml-4 font-normal w-[60%] whitespace-nowrap text-ellipsis overflow-hidden"><%= upload.title%></h1>
+                                </div>
+                                <div class="ic ml-auto w-[30px] h-[30px] rounded-full hover:bg-slate-500 flex-shrink-0 flex items-center justify-center"><?xml version="1.0" ?><svg class="w-[24px] h-[24px] fill-white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="12" r="2" stroke="black"/><circle cx="12" cy="12" r="2" stroke="black"/><circle cx="19" cy="12" r="2" stroke="black"/></svg></div>
+                                <div class="mn w-[130px] min-h-[140px] hidden bg-white absolute bottom-0 right-0 overflow-hidden top-[45px] z-20 rounded">
+                                    <a class="data-add flex items-center gap-2 p-2 py-[10px] font-bold text-black hover:bg-slate-500"><?xml version="1.0" ?><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M9,20 L9,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,4 C1,2.8954305 1.8954305,2 3,2 L21,2 C22.1045695,2 23,2.8954305 23,4 L23,17 C23,18.1045695 22.1045695,19 21,19 L15,19 L15,20 L17,20 L17,22 L7,22 L7,20 L9,20 Z M3,17 L21,17 L21,4 L3,4 L3,17 Z" fill-rule="evenodd"/></svg> Show</a>
+                                    <a href="#" class="edit flex items-center gap-2 p-2 py-[10px] font-bold mt-1 text-black hover:bg-slate-500"><?xml version="1.0" ?><svg id="Layer_1" class="w-[24px] h-[24px]" style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M19.607,18.746c0,0.881-0.716,1.624-1.597,1.624H5.231c-0.881,0-1.597-0.743-1.597-1.624V5.967  c0-0.881,0.716-1.571,1.597-1.571h7.454V3.332H5.231c-1.468,0-2.662,1.168-2.662,2.636v12.778c0,1.468,1.194,2.688,2.662,2.688  h12.778c1.468,0,2.662-1.221,2.662-2.688v-7.428h-1.065V18.746z"/><path d="M20.807,3.17c-0.804-0.805-2.207-0.805-3.012,0l-7.143,7.143c-0.068,0.068-0.117,0.154-0.14,0.247L9.76,13.571  c-0.045,0.181,0.008,0.373,0.14,0.506c0.101,0.101,0.237,0.156,0.376,0.156c0.043,0,0.086-0.005,0.129-0.016l3.012-0.753  c0.094-0.023,0.179-0.072,0.247-0.14l7.143-7.143c0.402-0.402,0.624-0.937,0.624-1.506S21.21,3.572,20.807,3.17z M13.016,12.467  l-2.008,0.502l0.502-2.008l5.909-5.909l1.506,1.506L13.016,12.467z M20.054,5.428l-0.376,0.376l-1.506-1.506l0.376-0.376  c0.402-0.402,1.104-0.402,1.506,0c0.201,0.201,0.312,0.468,0.312,0.753C20.366,4.96,20.255,5.227,20.054,5.428z"/></svg> Edit</a>
+                                    <a href="#" class="delete flex items-center gap-2 p-2 py-[10px] font-bold mt-1 text-black hover:bg-slate-500"><?xml version="1.0" ?><svg height="24" viewBox="0 0 48 48" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0V0z" fill="none"/><path d="M12 38c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V14H12v24zm4.93-14.24l2.83-2.83L24 25.17l4.24-4.24 2.83 2.83L26.83 28l4.24 4.24-2.83 2.83L24 30.83l-4.24 4.24-2.83-2.83L21.17 28l-4.24-4.24zM31 8l-2-2H19l-2 2h-7v4h28V8z"/><path d="M0 0h48v48H0z" fill="none"/></svg> Delete</a>
+                                </div>
+                            </div>
+                        <%})%>
+                    <%}%>
+                    <div class="upload-data w-full h-full bg-[#3434349e] fixed z-[99999999] bottom-[-100%] transition-all left-0 overflow-auto">
+                        <div class="nv mr-auto h-[10vh] flex justify-end px-[20px] bg-slate-800 pt-7">
+                            <div class="close">
+                                <?xml version="1.0" ?><svg class="w-[35px] h-[35px] fill-white stroke-white" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs></defs><title/><g id="cross"><line class="cls-1" x1="7" x2="25" y1="7" y2="25"/><line class="cls-1" x1="7" x2="25" y1="25" y2="7"/></g></svg>
+                            </div>
+                        </div>
+                        <div class="btm w-full h-[95vh] bg-slate-800 bottom-0 flex flex-col gap-3 items-center p-4 overflow-auto">
+                            <h1 class="font-semibold text-2xl">Show</h1>
+                            <img src="" alt="">
+                            <video id="vid1" src="" poster="" controls class="upload-pic-img w-[100%] flex-shrink-0 h-[28vh] border border-slate-500 rounded-lg"></video>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium">id:</p>
+                                <p class="uploadid-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded">1234567890</p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium capitalize">Title:</p>
+                                <p class="title-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis overflow-hidden border-slate-500 border rounded"><span></span></p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium capitalize">Duration:</p>
+                                <p class="duration-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded">Abhay Gautam</p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium lowercase">Des:</p>
+                                <p class="des-p w-full px-2 line-clamp-3 flex items-center text-ellipsis border-slate-500 border rounded">abhay@gmail.com</p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium lowercase">Date:</p>
+                                <p class="date-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded">+91 6260396658</p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium lowercase">Course:</p>
+                                <p class="course-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded">12/12/2023</p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium lowercase">Mentor:</p>
+                                <p class="mentor-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded"></p>
+                            </div>
+                            <div class="w-full">
+                                <p class="text-sm text-slate-300 font-medium lowercase">Mac Address:</p>
+                                <p class="uploadmac-p w-full px-2 h-[45px] flex items-center whitespace-nowrap text-ellipsis border-slate-500 border rounded"></p>
+                            </div>
+                            <div class="w-full flex gap-3 items-center">
+                                <a href="#" class="edit flex items-center gap-2 px-6 rounded-sm fill-white text-white py-[10px] font-bold mt-1 bg-green-500 hover:bg-green-600"><?xml version="1.0" ?><svg id="Layer_1" class="w-[24px] h-[24px]" style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M19.607,18.746c0,0.881-0.716,1.624-1.597,1.624H5.231c-0.881,0-1.597-0.743-1.597-1.624V5.967  c0-0.881,0.716-1.571,1.597-1.571h7.454V3.332H5.231c-1.468,0-2.662,1.168-2.662,2.636v12.778c0,1.468,1.194,2.688,2.662,2.688  h12.778c1.468,0,2.662-1.221,2.662-2.688v-7.428h-1.065V18.746z"/><path d="M20.807,3.17c-0.804-0.805-2.207-0.805-3.012,0l-7.143,7.143c-0.068,0.068-0.117,0.154-0.14,0.247L9.76,13.571  c-0.045,0.181,0.008,0.373,0.14,0.506c0.101,0.101,0.237,0.156,0.376,0.156c0.043,0,0.086-0.005,0.129-0.016l3.012-0.753  c0.094-0.023,0.179-0.072,0.247-0.14l7.143-7.143c0.402-0.402,0.624-0.937,0.624-1.506S21.21,3.572,20.807,3.17z M13.016,12.467  l-2.008,0.502l0.502-2.008l5.909-5.909l1.506,1.506L13.016,12.467z M20.054,5.428l-0.376,0.376l-1.506-1.506l0.376-0.376  c0.402-0.402,1.104-0.402,1.506,0c0.201,0.201,0.312,0.468,0.312,0.753C20.366,4.96,20.255,5.227,20.054,5.428z"/></svg> Edit</a>
+                                <a href="#" class="delete-res flex items-center gap-2 px-6 rounded-sm fill-white text-white py-[10px] font-bold mt-1 hover:bg-red-600 bg-red-500"><?xml version="1.0" ?><svg height="24" viewBox="0 0 48 48" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0V0z" fill="none"/><path d="M12 38c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V14H12v24zm4.93-14.24l2.83-2.83L24 25.17l4.24-4.24 2.83 2.83L26.83 28l4.24 4.24-2.83 2.83L24 30.83l-4.24 4.24-2.83-2.83L21.17 28l-4.24-4.24zM31 8l-2-2H19l-2 2h-7v4h28V8z"/><path d="M0 0h48v48H0z" fill="none"/></svg> Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll(".resp").forEach((elem,index)=>{
+            let asdf = 0;
+            elem.querySelector(".ic").addEventListener("click",()=>{
+                if(asdf == 0){
+                    document.querySelectorAll(".mn").forEach(el=>{
+                        el.classList.add("hidden")
+                    })
+                    elem.querySelector(".mn").classList.remove("hidden")
+                    elem.querySelector(".mn").classList.add("block")
+                    asdf = 1
+                }else{
+                    document.querySelectorAll(".mn").forEach(el=>{
+                        el.classList.add("hidden")
+                        asdf = 0
+                    })
+                    asdf = 0
+                }
+            })
+            let data = elem.querySelector(".dates").dataset
+            elem.querySelector(".data-add").addEventListener("click",()=>{
+                document.querySelectorAll(".mn").forEach(el=>{
+                        document.querySelector(".uploadid-p").textContent = data.id
+                        document.querySelector(".delete-res").href = `/upload-delete/${data.id}`
+                        document.querySelector(".title-p").textContent = data.title
+                        document.querySelector(".duration-p").textContent = data.duration
+                        document.querySelector(".des-p").textContent = data.des
+                        document.querySelector(".date-p").textContent = data.date
+                        document.querySelector(".course-p").textContent = data.course
+                        document.querySelector(".mentor-p").textContent = data.mentor
+                        document.querySelector(".uploadmac-p").textContent = data.mac
+                        document.querySelector(".upload-pic-img").poster = data.pic
+                        document.querySelector(".upload-pic-img").src = data.url
+                        el.classList.add("hidden")
+                        asdf = 0
+                    })
+                document.querySelector(".upload-data").classList.remove("bottom-[-100%]")
+                document.querySelector(".upload-data").classList.add("bottom-[0%]")
+            })
+        })
+        document.querySelector(".close").addEventListener("click",()=>{
+            document.querySelector(".upload-data").classList.add("bottom-[-100%]")
+                document.querySelector(".upload-data").classList.remove("bottom-[0%]")
+        })
+    </script>
+    
+</body>
+</html>

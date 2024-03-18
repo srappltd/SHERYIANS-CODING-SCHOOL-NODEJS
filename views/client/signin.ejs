@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="main" class="max-w-[1580px] h-screen m-auto bg-white text-black dark:bg-slate-900 dark:text-white relative fill-black stroke-black dark:fill-white dark:stroke-white">
+        <!-- // nav  -->
+        <div class="nav w-full h-[8vh] flex bg-white dark:bg-slate-900 px-[15px] md:px-[30px] justify-between fixed z-50">
+            <div class="nav-l h-full flex items-center">
+                <a href="/" class="flex items-center gap-3"><img class="w-[35px]" src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Flogo%2FUntitled-2-modified.png?alt=media&token=cfd6a158-1040-4e4c-95a4-d88c5cfbdcde" alt=""> <h1 class="font-medium md:text-xl text-xl"> <span>| </span> True Coding School</h1></a>
+            </div>
+            <div class="nav-r flex items-center gap-3 md:gap-7 fill-black dark:fill-white">
+                <div class="menu"><svg class="cursor-pointer" height="33" viewBox="0 0 24 24" width="33" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20M4 12H20M4 18H20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></div>
+            </div>
+        </div>
+        <!-- // hide nav  -->
+        <div class="w-full h-[8vh] flex  px-[30px] justify-between"></div>
+        <div class="w-full h-[92vh] flex flex-col items-center">
+            <div class="container w-[100%] md:w-[60vh] h-full mt-20 md:mt-20 px-3 md:px-0">
+                <h1 class="font-semibold text-2xl">Log in</h1>
+                <form action="/signin" class="w-full mt-5" method="post" autocomplete="off">
+                    <div class="input flex flex-col">
+                        <label for="" class="text-xs">EMAIL</label>
+                        <input type="text" name="email" class="mt-1 text-sm font-normal tracking-[.7px] px-[15px] py-3 outline-none border border-slate-600" style="background: none;" placeholder="Enter email address">
+                    </div>
+                    <div class="input flex flex-col mt-4 relative">
+                        <label for="" class="text-xs">PASSWORD</label>
+                        <div class="relative w-full mt-1 border border-slate-600 text-black">
+                            <input type="password" name="password" class="password w-full text-sm font-normal tracking-[.7px] px-[15px] py-3 outline-none pr-[30px] text-slate-900 dark:text-slate-100" style="background: none;" placeholder="Enter email address">
+                            <div class="icon-eye absolute right-0 w-[30px] text-black dark:text-white h-[100%] bg-white dark:bg-slate-900 top-0 cursor-pointer flex items-center justify-center flex-shrink-0 font-thin"><i class="ri-eye-close-line font-thin"></i></div>
+                        </div>
+                    </div>
+                    <div class="input flex items-center gap-3 mt-4">
+                        <input type="checkbox" class="px-[15px] py-[10px] outline-none border border-slate-600" style="background: none;" placeholder="Enter email address">
+                        <label for="" class="text-xs uppercase" style="background: none;">Keep me Logged in</label>
+                    </div>
+                    <button type="submit" class="w-full py-[10px] font-medium bg-[#49a790] text-white mt-3 mb-3">Log in now</button>
+                    <a href="#" class="text-sm underline">Forgot your password ?</a>
+                    <% if(typeof alert != "undefined"){%>
+                        <p class="alert w-full text-center text-red-700"><%= alert%></p>
+                    <%}%>
+                    <div class="line w-full h-[1px] bg-slate-600 mt-5 mb-3"></div>
+                    <span class="font-normal text-lg">Or sign in with :</span>
+                    <a href="#" class="flex mb-3 gap-3 items-center text-white py-[10px] bg-[#a76049] dark:bg-slate-800 font-normal w-[100%] mt-3 justify-center">
+                        <img class="flex-shrink-0" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=" alt="">
+                        Sign in with Google
+                    </a>
+                    <span class="text-sm text-slate-600 dark:text-slate-200">Don't have an account? <a href="/signup" class="font-medium text-black dark:text-white underline">Register now</a></span>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        let pas = 0
+        let password = document.querySelector(".password")
+        let eye = document.querySelector(".icon-eye i");
+        document.querySelector(".icon-eye").addEventListener("click",()=>{
+            if(pas === 0){
+                eye.classList.remove("ri-eye-close-line");
+                eye.classList.add("ri-eye-line");
+                password.setAttribute("type","text")
+                pas = 1
+            }else{
+                eye.classList.remove("ri-eye-line");
+                eye.classList.add("ri-eye-close-line");
+                password.setAttribute("type","password")
+                pas = 0
+            }
+        })
+
+
+        setTimeout(()=>{
+            document.querySelector(".alert").textContent = ""
+        },2000)
+        document.addEventListener("contextmenu",(event)=>{
+            event.preventDefault()
+        })
+        document.addEventListener("keydown",(event)=>{
+            if(event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'i') || event.ctrlKey && event.shiftKey(event.key === 'U' || event.key === 'u')){
+                event.preventDefault()
+            }
+        })
+    </script>
+</body>
+</html>

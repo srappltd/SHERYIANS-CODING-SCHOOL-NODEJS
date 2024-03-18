@@ -1,0 +1,220 @@
+
+
+
+<style>
+    .main{
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+    }
+.emoji {
+  font-size: 53px;
+  position: absolute;
+  display: inline-block;
+  cursor: move;
+  line-height: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.emoji-wrap_0,
+.emoji-wrap_4 {
+  height: 370px;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  font-size: 0;
+}
+
+.emoji-wrap_0 {
+  width: 293px;
+  margin: 0 40px;
+}
+.emoji-wrap_0 .emoji1 {
+  top: 0;
+  left: 39.9317406143%;
+}
+.emoji-wrap_0 .emoji2 {
+  top: 6.02703%;
+  left: 63.50512%;
+}
+.emoji-wrap_0 .emoji3 {
+  top: 20%;
+  left: 75.0853242321%;
+}
+.emoji-wrap_0 .emoji4 {
+  top: 36.4864864865%;
+  left: 81.5699658703%;
+}
+.emoji-wrap_0 .emoji5 {
+  top: 53.2432432432%;
+  left: 81.5699658703%;
+}
+.emoji-wrap_0 .emoji6 {
+  top: 70.2702702703%;
+  left: 74.7440273038%;
+}
+.emoji-wrap_0 .emoji7 {
+  top: 82.4324324324%;
+  left: 60.409556314%;
+}
+.emoji-wrap_0 .emoji8 {
+  top: 87.027027027%;
+  left: 39.9317406143%;
+}
+.emoji-wrap_0 .emoji9 {
+  top: 82.4324324324%;
+  left: 20.1365187713%;
+}
+.emoji-wrap_0 .emoji10 {
+  top: 70.2702702703%;
+  left: 6.8259385666%;
+}
+.emoji-wrap_0 .emoji11 {
+  top: 53.2432432432%;
+  left: 1.023890785%;
+}
+.emoji-wrap_0 .emoji12 {
+  top: 36.4864864865%;
+  left: 1.023890785%;
+}
+.emoji-wrap_0 .emoji13 {
+  top: 20%;
+  left: 6.8259385666%;
+}
+.emoji-wrap_0 .emoji14 {
+  top: 7.027027027%;
+  left: 18.0887372014%;
+}
+
+.emoji-wrap_4 {
+  width: 280px;
+}
+.emoji-wrap_4 .emoji1 {
+  top: 1.0810810811%;
+  left: 56.7857142857%;
+}
+.emoji-wrap_4 .emoji2 {
+  top: 14.0540540541%;
+  left: 43.5714285714%;
+}
+.emoji-wrap_4 .emoji3 {
+  top: 27.027027027%;
+  left: 28.5714285714%;
+}
+.emoji-wrap_4 .emoji4 {
+  top: 40.2702702703%;
+  left: 13.5714285714%;
+}
+.emoji-wrap_4 .emoji5 {
+  top: 53.5135135135%;
+  left: 0;
+}
+.emoji-wrap_4 .emoji6 {
+  top: 53.5135135135%;
+  left: 19.2857142857%;
+}
+.emoji-wrap_4 .emoji7 {
+  top: 53.5135135135%;
+  left: 39.2857142857%;
+}
+.emoji-wrap_4 .emoji8 {
+  top: 53.5135135135%;
+  left: 60.7142857143%;
+}
+.emoji-wrap_4 .emoji9 {
+  top: 53.5135135135%;
+  left: 81.0714285714%;
+}
+.emoji-wrap_4 .emoji10 {
+  top: 38.6486486486%;
+  left: 60.7142857143%;
+}
+.emoji-wrap_4 .emoji11 {
+  top: 68.9189189189%;
+  left: 60.7142857143%;
+}
+.emoji-wrap_4 .emoji12 {
+  top: 85.1351351351%;
+  left: 60.7142857143%;
+}
+</style>
+<div class="main">
+    <div class="emoji-wrap">
+        <div class="emoji-wrap_4"></div>
+        <div class="emoji-wrap_0"></div>
+        <div class="emoji-wrap_4"></div>
+    </div>
+
+</div>
+
+
+<script>
+    
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
+function p404(){
+
+	var emojiEl, emojiBlock4="", emojiBlock0 = "";
+
+	for(var i=1; i<13; i++){
+		emojiEl = "<span class='emoji emoji"+ i +"'>&#1285"+getRandomInt(13,67)+";</span>";
+		emojiBlock4 += emojiEl; 
+	}
+	document.querySelectorAll('.emoji-wrap_4').forEach(
+		function(el){
+			el.innerHTML = emojiBlock4;
+		}
+	);
+	for(var j=1; j<15; j++){
+		emojiEl = "<span class='emoji emoji"+ j +"'>&#1285"+getRandomInt(13,67)+";</span>";
+		emojiBlock0 += emojiEl;
+	}
+	document.querySelectorAll('.emoji-wrap_0').forEach(
+		function(el){
+			el.innerHTML = emojiBlock0;
+		}
+	);
+
+
+	//drag n drop
+	var ball = document.querySelectorAll('.emoji');
+	ball.forEach(
+		function(el){
+			el.onmousedown = function(e){
+				el.style.position = 'absolute';
+				moveAt(e);
+				document.body.appendChild(el);
+				el.style.zIndex = 1000;
+
+				function moveAt(e){
+					el.style.left = e.pageX - el.offsetWidth / 2 +'px';
+					el.style.top = e.pageY - el.offsetHeight / 2 +'px';
+				}
+				document.onmousemove = function(e){
+					moveAt(e);
+				};
+				el.onmouseup = function(){
+					document.onmousemove = null;
+					el.onmouseup = null;
+				}
+			};
+			el.ondragstart = function(){
+				return false;
+			}
+		}
+	)
+}
+
+p404();
+</script>

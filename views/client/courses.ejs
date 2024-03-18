@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheryians | Courses</title>
+    <link rel="stylesheet" href="../../stylesheets/style.css">
+    <link rel="stylesheet" href="../../stylesheets/cources.css">
+    <link rel="shortcut icon" href="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Flogo%2FUntitled-2-modified.png?alt=media&token=cfd6a158-1040-4e4c-95a4-d88c5cfbdcde" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        #pro-picture-img{
+        display: flex !important;
+        }
+        @media (min-width:320px) and (max-width:600px) {
+            #pro-picture-img{
+            display: none !important;
+        }
+    }
+    </style>
+
+</head>
+<body>
+    <div id="main">
+        <!-- // nav bar  -->
+        <nav id="navbar" class="nav">
+            <a href="/" class="left">
+                <img src="https://firebasestorage.googleapis.com/v0/b/b24--project.appspot.com/o/sheryians%2Flogo%2FUntitled-2-modified.png?alt=media&token=cfd6a158-1040-4e4c-95a4-d88c5cfbdcde" alt="">
+                <h1> <span>| </span> True Coding School</h1>
+            </a>
+            <div class="right">
+                <a href="/">Home</a>
+                <a href="/courses">Courses</a>
+                <a href="/campus-ambussador">Campus Ambassador</a>
+                <a href="/girls-who-code">Girls Who Code</a>
+                <a href="/inertia">Inertia</a>
+                <% if(user != ""){%>
+                    <div id="pro-picture-img" class="icons menu-btn" style="overflow: hidden; display: flex;align-items: center;justify-content: center; cursor: pointer;">
+                        <% if(user.picture != ""){%>
+                            <img style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover;" src="../../admin/user-pic/<%= user.picture%>" alt=""></div>
+                        <%}else{%>
+                            <img style="width: 35px; border-radius: 50%;" src="https://png.pngitem.com/pimgs/s/150-1503945_transparent-user-png-default-user-image-png-png.png" alt=""></div>
+                        <%}%>
+                    <%}else{%>
+                        <a href="/signin">Sign In</a>
+                <%}%>
+            </div>
+            <div class="toggle menu-btn">
+                <span style="background-color: antiquewhite;"></span>
+                <span style="background-color: antiquewhite;"></span>
+                <span style="background-color: antiquewhite;"></span>
+            </div>
+        </nav>
+        <!-- // nav bar \\\ -->
+
+        
+<div class="menu-pg w-[250px] hidden min-h-[200px] md:bg-slate-800 bg-slate-800 fixed z-[9999900000] right-[0] md:right-[58px] top-[6.5vh] rounded-none md:rounded-lg p-2">
+    <% if(user != ""){%>
+        <a href="/my-account" class="top-me flex gap-2 whitespace-nowrap line-clamp-1 items-center p-2 bg-slate-700 text-white rounded">
+            <%if(user.picture != ""){%>
+                <img class="w-[45px] h-[45px] flex-shrink-0 rounded-full border border-slate-500 object-cover" src="../../admin/user-pic/<%= user.picture%>" alt="">
+                <%}else{%>
+                    <img class="w-[45px] h-[45px] flex-shrink-0 rounded-full border border-slate-500 object-cover" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Ic_account_circle_48px.svg/1200px-Ic_account_circle_48px.svg.png" alt="">
+                <%}%>
+            <div class="w-full flex flex-col justify-center">
+                <h1 class="font-bold w-full text-lg leading-[1.5] text-ellipsis line-clamp-1 overflow-hidden"><%= user.username%></h1>
+                <!-- <h3 class="font-normal text-sm leading-[1.1] text-ellipsis">Student Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident perspiciatis excepturi earum dolores ipsa possimus tenetur praesentium nihil est et odit, velit suscipit omnis amet voluptatem quod nam enim illo?</h3> -->
+                <small class="font-medium leading-[1.1] text-slate-400"><%= user.email%></small>
+            </div>
+        </a>
+        <a href="/classroom" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Classroom</h1></a>
+        <a href="/courses" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Courses</h1></a>
+        <a href="/campus-ambussador" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Campus Ambassador</h1></a>
+        <a href="/girls-who-code" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Girls Who Code</h1></a>
+        <a href="/inertia" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Inertia</h1></a>
+    <%}else{%>
+        <a href="/signin" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Sign In</h1></a>
+        <a href="/courses" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Courses</h1></a>
+        <a href="/campus-ambussador" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Campus Ambassador</h1></a>
+        <a href="/girls-who-code" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Girls Who Code</h1></a>
+        <a href="/inertia" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Inertia</h1></a>
+    <%}%>
+<a href="/help" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded"><h1>Help Center</h1>
+</a>
+<% if(user != ""){%>
+    <a href="/logout" class="top-me flex gap-2 whitespace-nowrap mt-2 line-clamp-1 items-center p-2 font-medium text-sm hover:bg-slate-700 text-white rounded">
+        <h1>Logout</h1>
+    </a>
+    <%}else{%>
+<%}%>
+
+</div>
+
+<script>
+fleg = 0;
+document.querySelectorAll(".menu-btn").forEach(elem=>{
+    elem.addEventListener("click",()=>{
+
+        if(fleg == 0){
+            document.querySelector(".menu-pg").classList.remove("hidden")
+            fleg = 1;
+        }else{
+            document.querySelector(".menu-pg").classList.add("hidden")
+            fleg =0
+        }
+    })
+})
+</script>
+
+
+        <div id="category">
+            <h4>Categories</h4>
+            <div class="tag">
+                <a href="">All</a>
+                <a href="">UI/UX</a>
+                <a href="">Web Dev</a>
+                <a href="">After Effects</a>
+                <a href="">3D</a>
+                <a href="">Illustration</a>
+                <a href="">Other</a>
+            </div>
+            <button>Live Courses <i class="ri-live-fill"></i></button>
+        </div>
+        <!-- // category bar \\\ -->
+
+        <!-- //card  -->
+        <div id="card">
+            <% if(courses.length != 0){%>
+                <% courses.reverse().forEach(course=>{%>
+                    <div href="/course-details" class="card">
+                        <div class="card1">
+                            <img src="../../admin/course-pic/<%= course.poster%>" alt="">
+                            <p class="start">Started on <%= course.start%></p>
+                            <h3><%= course.title%></h3>
+                            <p><%= course.des%></p>
+                            <div style="width: 94%;display: flex; align-items: center;justify-content: space-between; gap: 0px; position: absolute; bottom: 20px;">
+                                <form method="get" action="/course-details/<%= course._id%>">
+                                    <button>Start Learning</button>
+                                </form>
+                                <form action="">
+                                    <button>Explore</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <%})%>
+            <%}%>
+            
+        </div>
+
+        <div id="footers">
+            <div class="left">
+                <div class="content">
+                    <h1>Talent is display: block cheaper than table salt. What separates the talented individual from the successful one is a lot of hard work.</h1>
+                    <div>
+                        <div class="circle">
+                            <img src="https://images.unsplash.com/photo-1609894825087-787208428b2c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="">
+                        </div>
+                        <div class="circle">
+                            <img src="https://images.unsplash.com/photo-1609976702745-f4112734e5e0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="">
+                        </div>
+                        <div class="circle">
+                            <img src="https://images.unsplash.com/photo-1572853366277-ecbf6650ad8e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80" alt="">
+                        </div>
+                        <p>1500+ Student Projects</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="right">
+                <div class="content">
+                    <h2>Quick Links</h2>
+                    <p>Move to top</p>
+                    <p>Get our Course.</p>
+                    <p>See student work</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("contextmenu",(event)=>{
+            event.preventDefault()
+        })
+        document.addEventListener("keydown",(event)=>{
+            if(event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'i') || event.ctrlKey && event.shiftKey(event.key === 'U' || event.key === 'u')){
+                event.preventDefault()
+            }
+        })
+    </script>
+</body>
+</html>
