@@ -209,31 +209,26 @@ router.get("/deshboard", clientLogout, async function (req, res, next) {
 });
 // signup
 router.post("/signup", clientLogin, async (req, res) => {
-  try {
-    const { username, email, mobile, password } = req.body;
-    const userFind = await userModel.findOne({ email });
-    if (username && email && mobile && password) {
-      if (!userFind) {
-        const passHash = await bcrypt.hash(password, 10);
-        const userData = await userModel.create({
-          username,
-          email,
-          mobile,
-          password: passHash,
-          mac: mac["Wi-Fi"][0].mac,
-        });
-        
-        req.session.user = userData;
-        res.redirect("/");
-      } else {
-        res.render("client/signup", { alert: "User allready register" });
-      }
+  const { username, email, mobile, password } = req.body;
+  const userFind = await userModel.findOne({ email });
+  if (username && email && mobile && password) {
+    if (!userFind) {
+      const passHash = await bcrypt.hash(password, 10);
+      const userData = await userModel.create({
+        username,
+        email,
+        mobile,
+        password: passHash,
+        mac: mac["Wi-Fi"][0].mac,
+      });
+      
+      req.session.user = userData;
+      res.redirect("/");
     } else {
-      res.render("client/signup", { alert: "Allfield required" });
+      res.render("client/signup", { alert: "User allready register" });
     }
-    
-  } catch (error) {
-    res.send(error)
+  } else {
+    res.render("client/signup", { alert: "Allfield required" });
   }
 });
 // signin
