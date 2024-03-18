@@ -253,7 +253,7 @@ router.post("/signin", clientLogin, async (req, res) => {
     }
     
   } catch (error) {
-    res.send(error)
+    res.redirect("/signin")
   }
 });
 // logout
